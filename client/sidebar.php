@@ -23,9 +23,9 @@
                   <span class="menu-arrow arrow_carrot-right"></span>
               </a>
     <ul class="sub">
-      <li><a class="" href="">Meus dados</a></li>
-      <li><a class="" href="">Alterar senha</a></li>
-      <li><a class="" href="">Sair</a></li>
+      <li><a class="" href="myAccount.php">Meus dados</a></li>
+      <li><a class="" href="changePassword.php">Alterar senha</a></li>
+      <li><a class="" href="../config/logout.php">Sair</a></li>
     </ul>
   </li>
   <!-- <li class="sub-menu">

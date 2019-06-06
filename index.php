@@ -13,27 +13,27 @@
 	<title>Construsonhos</title>
 
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
 
 	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css" />
 
 	<!-- Owl Carousel -->
-	<link type="text/css" rel="stylesheet" href="css/owl.carousel.css" />
-	<link type="text/css" rel="stylesheet" href="css/owl.theme.default.css" />
+	<link type="text/css" rel="stylesheet" href="assets/css/owl.carousel.css" />
+	<link type="text/css" rel="stylesheet" href="assets/css/owl.theme.default.css" />
 
 	<!-- Magnific Popup -->
-	<link type="text/css" rel="stylesheet" href="css/magnific-popup.css" />
+	<link type="text/css" rel="stylesheet" href="assets/css/magnific-popup.css" />
 
 	<!-- Font Awesome Icon -->
-	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 
 	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link type="text/css" rel="stylesheet" href="assets/css/style.css" />
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
@@ -45,11 +45,40 @@
 	<![endif]-->
 </head>
 
+<?php
+	if(isset($_GET['modalName'])) {
+	    if ($_GET["modalName"] == "myModalLogin") {
+	    	echo "<script>
+					$().ready(function() {
+						$(window).load(function(){
+					 		$('#myModalLogin').modal('show');
+						});
+						setTimeout(function () {
+							$('.msgLogin').hide();
+						}, 5000);
+						setTimeout(function () {
+							$('.msgLoginFail').hide();
+						}, 5000);
+					});
+				</script>";
+	    } else if ($_GET["modalName"] == "myModalRegister") {
+	    	echo "<script>
+				$(window).load(function(){
+			 		$('#myModalRegister').modal('show');
+				});
+				setTimeout(function () {
+					$('.msgRegister').hide();
+				}, 5000);
+			</script>";
+	    }
+	}
+?>
+
 <body>
 	<!-- Header -->
 	<header id="home">
 		<!-- Background Image -->
-		<div class="bg-img" style="background-image: url('./img/background1.jpg');">
+		<div class="bg-img" style="background-image: url('assets/img/background1.jpg');">
 			<div class="overlay"></div>
 		</div>
 		<!-- /Background Image -->
@@ -61,9 +90,9 @@
 				<div class="navbar-header">
 					<!-- Logo -->
 					<div class="navbar-brand">
-						<a href="index.html">
-							<img class="logo" src="img/logo.png" alt="logo">
-							<img class="logo-alt" src="img/logo-alt.png" alt="logo">
+						<a href="/construsonhos/">
+							<img class="logo" src="assets/img/logo.png" alt="logo">
+							<img class="logo-alt" src="assets/img/logo-alt.png" alt="logo">
 						</a>
 					</div>
 					<!-- /Logo -->
@@ -192,11 +221,11 @@
 				<div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
 					<!-- Work -->
 				<div class="col-md-4 col-xs-6 work">
-					<img class="img-responsive" src="./img/work1.jpg" alt="">
+					<img class="img-responsive" src="assets/img/work1.jpg" alt="">
 					<div class="overlay"></div>
 					<div class="work-content">
 						<div class="work-link">
-							<a class="lightbox" href="./img/work1.jpg"><i class="fa fa-search"></i></a>
+							<a class="lightbox" href="assets/img/work1.jpg"><i class="fa fa-search"></i></a>
 						</div>
 					</div>
 				</div>
@@ -204,11 +233,11 @@
 
 				<!-- Work -->
 				<div class="col-md-4 col-xs-6 work">
-					<img class="img-responsive" src="./img/work2.jpg" alt="">
+					<img class="img-responsive" src="assets/img/work2.jpg" alt="">
 					<div class="overlay"></div>
 					<div class="work-content">
 						<div class="work-link">
-							<a class="lightbox" href="./img/work2.jpg"><i class="fa fa-search"></i></a>
+							<a class="lightbox" href="assets/img/work2.jpg"><i class="fa fa-search"></i></a>
 						</div>
 					</div>
 				</div>
@@ -216,11 +245,11 @@
 
 				<!-- Work -->
 				<div class="col-md-4 col-xs-6 work">
-					<img class="img-responsive" src="./img/work3.jpg" alt="">
+					<img class="img-responsive" src="assets/img/work3.jpg" alt="">
 					<div class="overlay"></div>
 					<div class="work-content">
 						<div class="work-link">
-							<a class="lightbox" href="./img/work3.jpg"><i class="fa fa-search"></i></a>
+							<a class="lightbox" href="assets/img/work3.jpg"><i class="fa fa-search"></i></a>
 						</div>
 					</div>
 				</div>
@@ -228,11 +257,11 @@
 
 				<!-- Work -->
 				<div class="col-md-4 col-xs-6 work">
-					<img class="img-responsive" src="./img/work4.jpg" alt="">
+					<img class="img-responsive" src="assets/img/work4.jpg" alt="">
 					<div class="overlay"></div>
 					<div class="work-content">
 						<div class="work-link">
-							<a class="lightbox" href="./img/work4.jpg"><i class="fa fa-search"></i></a>
+							<a class="lightbox" href="assets/img/work4.jpg"><i class="fa fa-search"></i></a>
 						</div>
 					</div>
 				</div>
@@ -240,11 +269,11 @@
 
 				<!-- Work -->
 				<div class="col-md-4 col-xs-6 work">
-					<img class="img-responsive" src="./img/work5.jpg" alt="">
+					<img class="img-responsive" src="assets/img/work5.jpg" alt="">
 					<div class="overlay"></div>
 					<div class="work-content">
 						<div class="work-link">
-							<a class="lightbox" href="./img/work5.jpg"><i class="fa fa-search"></i></a>
+							<a class="lightbox" href="assets/img/work5.jpg"><i class="fa fa-search"></i></a>
 						</div>
 					</div>
 				</div>
@@ -252,11 +281,11 @@
 
 				<!-- Work -->
 				<div class="col-md-4 col-xs-6 work">
-					<img class="img-responsive" src="./img/work6.jpg" alt="">
+					<img class="img-responsive" src="assets/img/work6.jpg" alt="">
 					<div class="overlay"></div>
 					<div class="work-content">
 						<div class="work-link">
-							<a class="lightbox" href="./img/work6.jpg"><i class="fa fa-search"></i></a>
+							<a class="lightbox" href="assets/img/work6.jpg"><i class="fa fa-search"></i></a>
 						</div>
 					</div>
 				</div>
@@ -286,7 +315,7 @@
 	<div id="numbers" class="section sm-padding">
 
 		<!-- Background Image -->
-		<div class="bg-img" style="background-image: url('./img/background2.jpg');">
+		<div class="bg-img" style="background-image: url('assets/img/background2.jpg');">
 			<div class="overlay"></div>
 		</div>
 		<!-- /Background Image -->
@@ -402,7 +431,7 @@
 
 				<!-- contact form -->
 				<div class="col-md-8 col-md-offset-2">
-					<form class="contact-form">
+					<form class="contact-form" method="post" action="processSendEmail.php">
 						<input style="border: 2px solid #988e8e;" type="text" class="input" required placeholder="Nome">
 						<input style="border: 2px solid #988e8e;" type="email" required class="input" placeholder="E-mail">
 						<textarea style="border: 2px solid #988e8e;" class="input" required placeholder="Mensagem"></textarea>
@@ -465,15 +494,18 @@
 	<!-- /Preloader -->
 
 	<!-- jQuery Plugins -->
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/owl.carousel.min.js"></script>
-	<script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.mask.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.magnific-popup.js"></script>
+	<script type="text/javascript" src="assets/js/main.js"></script>
 
 	<!-- Inclusão do Plugin jQuery Validation-->
 	<script src="https://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
-	<script src="js/default.js"></script>
+	<script src="assets/js/default.js"></script>
+	<script src="assets/js/jquery.mask.js"></script>
 
 </body>
 
@@ -488,12 +520,12 @@
       </div>
       <div class="modal-body">
 
-        <form class="login-form" id="login-form" action="">
+        <form class="login-form" id="login-form" method="post" action="/construsonhos/config/validateLogin.php">
 	      <div class="login-wrap">
 	        <p class="login-img"><i class="icon_lock_alt"></i></p>
 	        <div class="form-group">
                 <label for="exampleInputEmail1">E-mail</label>
-                <input type="email" class="form-control" name="email" id="exampleInputEmail3" placeholder="Digite seu e-mail">
+                <input type="email" class="form-control" name="email" id="exampleInputEmail3" placeholder="Digite seu e-mail" autofocus>
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Senha</label>
@@ -502,13 +534,17 @@
 	        <label style="padding-left: 0px;" class="checkbox">
 	            <span class="pull-right"><a style="margin-bottom: 10px;display: block;" href="">Esqueceu sua senha?</a></span>
 	        </label>
-	        <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+	        <input class="btn btn-primary btn-lg btn-block" name="buttonLogin" value="Login" type="submit">
 	        <div id="msgs-login" class="msgs">
 	        	<?php
-		            if (isset($_SESSION['msgLogin'])) {
-		                echo $_SESSION['msgLogin'];
-		                unset($_SESSION['msgLogin']);
-		            }
+	            if (isset($_SESSION['msgLogin'])) {
+	                echo $_SESSION['msgLogin'];
+	                unset($_SESSION['msgLogin']);
+	            }
+	            if (isset($_SESSION['msgLoginFail'])) {
+	                echo $_SESSION['msgLoginFail'];
+	                unset($_SESSION['msgLoginFail']);
+	            }
 		        ?>
 	        </div>
 	      </div>
@@ -527,15 +563,15 @@
       </div>
       <div class="modal-body">
 
-        <form style="max-width: 700px;" class="login-form" id="register-form" method="post" action="">
+        <form style="max-width: 700px;" class="login-form" id="register-form" method="post" action="processRegisterClient.php">
 	      <div class="login-wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
 	        <div class="form-group register">
 				<label for="exampleInputEmail1">Nome</label>
-				<input type="text" name="nome" class="form-control" placeholder="Digite seu nome completo">
+				<input type="text" name="nome" class="form-control" placeholder="Digite seu nome completo" autofocus>
 			</div>
 	        <div class="form-group register">
 				<label for="exampleInputEmail1">CPF</label>
-				<input type="text" name="cpf" class="form-control" placeholder="Digite seu CPF">
+				<input type="text" name="cpf" id="cpf" class="form-control" placeholder="Digite seu CPF">
 			</div>
 			<div class="form-group register">
 				<label for="exampleInputEmail1">E-mail</label>
@@ -543,9 +579,9 @@
 			</div>
 			<div class="form-group register">
 				<label for="exampleInputEmail1">Telefone</label>
-				<input type="text" name="telefone" id="telefone" class="form-control" placeholder="Digite seu telefone">
+				<input type="text" name="telefone" id="telefone" class="form-control" placeholder="Digite seu telefone/celular com DDD">
 			</div>
-			<div class="form-group register">
+			<!-- <div class="form-group register">
 				<label for="exampleInputEmail1">CEP</label>
 				<input type="text" name="cep" class="form-control"  id="cep" onblur="pesquisacep(this.value);" placeholder="Digite seu CEP">
 			</div>
@@ -568,7 +604,7 @@
 	        <div class="form-group register">
 				<label for="exampleInputEmail1">Número</label>
 				<input type="text" name="numero" class="form-control"  id="numero" placeholder="Digite seu número">
-			</div>
+			</div> -->
 	        <div class="form-group register">
 				<label for="exampleInputEmail1">Senha</label>
 				<input type="password" name="senha" class="form-control"  id="senha" placeholder="Digite sua senha">
@@ -617,70 +653,3 @@
 		font-weight: bold;
 	}
 </style>
-
-<script type="text/javascript">
-  function limpa_formulário_cep() {
-        //Limpa valores do formulário de cep.
-        document.getElementById('rua').value=("");
-        document.getElementById('bairro').value=("");
-        document.getElementById('cidade').value=("");
-        document.getElementById('uf').value=("");
-}
-
-function meu_callback(conteudo) {
-    if (!("erro" in conteudo)) {
-        //Atualiza os campos com os valores.
-        document.getElementById('rua').value=(conteudo.logradouro);
-        document.getElementById('bairro').value=(conteudo.bairro);
-        document.getElementById('cidade').value=(conteudo.localidade);
-        document.getElementById('uf').value=(conteudo.uf);
-    } //end if.
-    else {
-        //CEP não Encontrado.
-        limpa_formulário_cep();
-        alert("CEP não encontrado.");
-    }
-}
-    
-function pesquisacep(valor) {
-
-    //Nova variável "cep" somente com dígitos.
-    var cep = valor.replace(/\D/g, '');
-
-    //Verifica se campo cep possui valor informado.
-    if (cep != "") {
-
-        //Expressão regular para validar o CEP.
-        var validacep = /^[0-9]{8}$/;
-
-        //Valida o formato do CEP.
-        if(validacep.test(cep)) {
-
-            //Preenche os campos com "..." enquanto consulta webservice.
-            document.getElementById('rua').value="...";
-            document.getElementById('bairro').value="...";
-            document.getElementById('cidade').value="...";
-            document.getElementById('uf').value="...";
-
-            //Cria um elemento javascript.
-            var script = document.createElement('script');
-
-            //Sincroniza com o callback.
-            script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
-
-            //Insere script no documento e carrega o conteúdo.
-            document.body.appendChild(script);
-
-        } //end if.
-        else {
-            //cep é inválido.
-            limpa_formulário_cep();
-            alert("Formato de CEP inválido.");
-        }
-    } //end if.
-    else {
-        //cep sem valor, limpa formulário.
-        limpa_formulário_cep();
-    }
-};
-</script>
