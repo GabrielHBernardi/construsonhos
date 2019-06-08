@@ -28,9 +28,9 @@
         <div class="row">
           <div class="col-lg-12">
             <?php
-              if (isset($_SESSION['msgLogin'])) {
-                  echo $_SESSION['msgLogin'];
-                  unset($_SESSION['msgLogin']);
+              if (isset($_SESSION['msgLoginAdmin'])) {
+                  echo $_SESSION['msgLoginAdmin'];
+                  unset($_SESSION['msgLoginAdmin']);
               }
             ?>
             <h3 class="page-header"><i class="fa fa-laptop"></i>Painel de controle</h3>
@@ -126,7 +126,7 @@
 
     <script>
       setTimeout(function () {
-        $('.msgLogin').hide();
+        $('.msgLoginAdmin').hide();
       }, 5000);
     </script>
 

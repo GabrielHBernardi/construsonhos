@@ -70,6 +70,20 @@
 					$('.msgRegister').hide();
 				}, 5000);
 			</script>";
+	    } else if ($_GET["modalName"] == "myModalLoginAdmin") {
+	    	echo "<script>
+				$().ready(function() {
+					$(window).load(function(){
+				 		$('#myModalLoginAdmin').modal('show');
+					});
+					setTimeout(function () {
+						$('.msgLoginAdmin').hide();
+					}, 5000);
+					setTimeout(function () {
+						$('.msgLoginFailAdmin').hide();
+					}, 5000);
+				});
+			</script>";
 	    }
 	}
 ?>
@@ -108,6 +122,7 @@
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li><a href="#myModalLogin" data-toggle="modal">Login</a><li>
 					<li><a href="#myModalRegister" data-toggle="modal">Cadastre-se</a></a><li>
+					<li><a href="#myModalLoginAdmin" data-toggle="modal">Área administrativa</a><li>
 					<!-- <li><a href="#pricing">Prices</a></li>
 					<li><a href="#team">Team</a></li>
 					<li class="has-dropdown"><a href="#blog">Blog</a>
@@ -135,7 +150,6 @@
 							<p style="font-size: 22px;" class="white-text">Do alicerce ao acabamento.
 							</p>
 							<a href="#myModalLogin" data-toggle="modal"><button class="main-btn">Solicite seu orçamento</button></a>
-							
 						</div>
 					</div>
 					<!-- /home content -->
@@ -510,6 +524,46 @@
 </body>
 
 </html>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModalLoginAdmin" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+        <h4 class="modal-title">Informe suas credênciais abaixo para efetuar login na área administrativa</h4>
+      </div>
+      <div class="modal-body">
+
+        <form class="login-form" id="login-form-admin" method="post" action="/construsonhos/config/validateLoginAdmin.php">
+	      <div class="login-wrap">
+	        <p class="login-img"><i class="icon_lock_alt"></i></p>
+	        <div class="form-group">
+                <label for="exampleInputEmail1">Login</label>
+                <input type="text" class="form-control" name="login" id="exampleInputEmail3" placeholder="Digite seu login" autofocus>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Senha</label>
+                <input type="password" class="form-control" id="exampleInputPassword3" name="senha" placeholder="Digite sua senha">
+              </div>
+	        <input class="btn btn-primary btn-lg btn-block" name="buttonLoginAdmin" value="Login" type="submit">
+	        <div id="msgs-login-admin" class="msgs" style="height: 50px; text-align: center;">
+	        	<?php
+	            if (isset($_SESSION['msgLoginAdmin'])) {
+	                echo $_SESSION['msgLoginAdmin'];
+	                unset($_SESSION['msgLoginAdmin']);
+	            }
+	            if (isset($_SESSION['msgLoginFailAdmin'])) {
+	                echo $_SESSION['msgLoginFailAdmin'];
+	                unset($_SESSION['msgLoginFailAdmin']);
+	            }
+		        ?>
+	        </div>
+	      </div>
+	    </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModalLogin" class="modal fade">
   <div class="modal-dialog">

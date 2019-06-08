@@ -3,6 +3,7 @@ $(document).ready(function(){
     validate_form_register_new_user();
     validate_form_login_user();
     validate_form_password_user();
+    validate_form_login_admin();
 
     $('#telefone').mask('(99) 999999999');
     $('#cpf').mask('999.999.999-99');
@@ -138,6 +139,48 @@ function validate_form_login_user(){
             case 'false':
                 $('#msgs-login').html('<span style="color: #c22d43;">Ocorreu um erro inesperado</span>');
                 $('#msgs-login').show();
+                break;
+        }
+        setTimeout(function () {
+            $('#msgs-login').html('');
+        }, 5000);
+    }
+}
+
+function validate_form_login_admin(){
+    $('#login-form-admin').validate({
+        rules: {
+            'login': { required: true},
+            'senha': { required: true}
+        },
+        messages: {
+            'login': { required: '<span style="color: #c22d43;"> Digite seu login</span>'},
+            'senha': { required: '<span style="color: #c22d43;">Digite sua senha</span>' }
+        },
+        submitHandler: function (form) {
+            var options = {
+                beforeSubmit: showRequest,
+                success: showResponse,
+                resetForm: true
+            };
+            $(form).ajaxSubmit(options);
+            return false;
+        },
+        errorLabelContainer: $('#msgs-login-admin')
+    });
+    function showRequest(formData, jqForm, options) {
+        $('#msgs-login-admin').html('<span style="color: #01a620;">Logando...</span>');
+        $('#msgs-login-admin').show();
+    }
+    function showResponse(data, jqForm) {
+        switch ($.trim(data)) {
+            case 'true':
+                $('#msgs-login-admin').html('<span style="color: #01a620;">Logado com sucesso!</span>');
+                $('#msgs-login-admin').show();
+                break;
+            case 'false':
+                $('#msgs-login-admin').html('<span style="color: #c22d43;">Ocorreu um erro inesperado</span>');
+                $('#msgs-login-admin').show();
                 break;
         }
         setTimeout(function () {

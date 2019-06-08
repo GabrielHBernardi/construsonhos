@@ -1,6 +1,13 @@
 <?php
   session_start();
 
+  if (!empty($_SESSION['idAdmin'])) {
+    // Vazio
+  } else {
+    header('Location: /construsonhos?modalName=myModalLoginAdmin');
+    $_SESSION['msgLoginFailAdmin'] = '<label class="msgLoginAdmin"><span style="color: #c22d43;">Acesso negado. Você precisa estar logado para acessar a área administrativa!</span></label>';
+  }
+
   include "../config/conectionDB.php";
 ?>
 <header class="header dark-bg">
@@ -220,12 +227,6 @@
                     </a>
         <ul class="dropdown-menu extended logout">
           <div class="log-arrow-up"></div>
-          <li class="eborder-top">
-            <a href="myAccount.php"><i class="icon_profile"></i>Minha conta</a>
-          </li>
-          <li>
-            <a href="changePassword.php"><i class="icon_key_alt"></i>Alterar senha</a>
-          </li>
           <!-- <li>
             <a href="#"><i class="icon_clock_alt"></i> Timeline</a>
           </li>
@@ -233,7 +234,7 @@
             <a href="#"><i class="icon_chat_alt"></i> Chats</a>
           </li> -->
           <li>
-            <a href="../config/logout.php"><i class="fas fa-sign-out-alt"></i>Sair</a>
+            <a href="../config/logoutAdmin.php"><i class="fas fa-sign-out-alt"></i>Sair</a>
           </li>
           <!-- <li>
             <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
