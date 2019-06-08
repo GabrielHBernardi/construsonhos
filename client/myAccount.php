@@ -72,30 +72,6 @@
                     <label for="exampleInputPassword1">E-mail</label>
                     <input type="text" class="form-control" name="email" placeholder="Digite seu e-mail" value="<?php echo $row_query['emailCliente']; ?>">
                   </div>
-                  <div class="form-group meia">
-                    <label for="exampleInputPassword1">CEP</label>
-                    <input type="text" class="form-control" name="cep" id="cep" placeholder="Digite seu CEP" onblur="pesquisacep(this.value);" value="<?php echo $row_query['cepCliente']; ?>">
-                  </div>
-                  <div class="form-group meia">
-                    <label for="exampleInputPassword1">Estado (UF)</label>
-                    <input type="text" class="form-control" name="estado" id="estado" maxlength="2" placeholder="Digite seu estado" value="<?php echo $row_query['estadoCliente']; ?>">
-                  </div>
-                  <div class="form-group meia">
-                    <label for="exampleInputPassword1">Cidade</label>
-                    <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Digite sua cidade" value="<?php echo $row_query['cidadeCliente']; ?>">
-                  </div>
-                  <div class="form-group meia">
-                    <label for="exampleInputPassword1">Bairro</label>
-                    <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Digite seu bairro" value="<?php echo $row_query['bairroCliente']; ?>">
-                  </div>
-                  <div class="form-group meia">
-                    <label for="exampleInputPassword1">Rua</label>
-                    <input type="text" class="form-control" name="rua" id="rua" placeholder="Digite sua rua" value="<?php echo $row_query['ruaCliente']; ?>">
-                  </div>
-                  <div class="form-group meia">
-                    <label for="exampleInputPassword1">Número</label>
-                    <input type="text" class="form-control" name="numero" placeholder="Digite seu número" value="<?php echo $row_query['numeroCliente']; ?>">
-                  </div>
                   <button type="submit" class="btn btn-primary">Alterar meus dados</button>
                   <div id="msgs-my-account">
                     <?php

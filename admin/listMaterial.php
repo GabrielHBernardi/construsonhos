@@ -92,7 +92,7 @@
                           echo $row_query['nomeFornecedor'];
                         ?>
                     </td>
-                    <td><?php echo $row['valorUnitarioMaterial']; ?></td>
+                    <td><?php echo 'R$ ' . number_format($row['valorUnitarioMaterial'], 2, ',', '.'); ?></td>
                     <td>
                       <div class="btn-group align">
                         <a href="editMaterial.php?idMaterial=<?php echo $row['idMaterial']; ?>" class="btn btn-primary yellow" href="#"><i class="fas fa-pencil-alt"></i></a>

@@ -1,6 +1,7 @@
 $(document).ready(function(){
     new_provider();
     new_material();
+    new_client();
 
     $('#telefone').mask('(99) 999999999');
     $('#cpf').mask('999.999.999-99');
@@ -19,6 +20,26 @@ $(document).ready(function(){
         var href = $(this).attr('href');
         if(!$('#confirm-delete').length){
             $('body').append('<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header bg-danger text-white">EXCLUIR FORNECEDOR<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza de que deseja excluir o fornecedor selecionado?</div><div class="modal-footer"><button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataComfirmOK">Apagar</a></div></div></div></div>');
+        }
+        $('#dataComfirmOK').attr('href', href);
+        $('#confirm-delete').modal({show: true});
+        return false;    
+    });
+
+    $('a[data-confirm-material]').click(function(ev){
+        var href = $(this).attr('href');
+        if(!$('#confirm-delete').length){
+            $('body').append('<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header bg-danger text-white">EXCLUIR MATERIAL<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza de que deseja excluir o material selecionado?</div><div class="modal-footer"><button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataComfirmOK">Apagar</a></div></div></div></div>');
+        }
+        $('#dataComfirmOK').attr('href', href);
+        $('#confirm-delete').modal({show: true});
+        return false;    
+    });
+
+    $('a[data-confirm-client]').click(function(ev){
+        var href = $(this).attr('href');
+        if(!$('#confirm-delete').length){
+            $('body').append('<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header bg-danger text-white">EXCLUIR CLIENTE<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza de que deseja excluir o cliente selecionado?</div><div class="modal-footer"><button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataComfirmOK">Apagar</a></div></div></div></div>');
         }
         $('#dataComfirmOK').attr('href', href);
         $('#confirm-delete').modal({show: true});
@@ -96,6 +117,52 @@ function new_material(){
             'marcaMaterial': { required: '<span style="color: #c22d43;"> Digite a marca</span>' },
             'idFornecedor': { required: '<span style="color: #c22d43;"> Selecione o fornecedor</span>' },
             'valorUnitarioMaterial': { required: '<span style="color: #c22d43;"> Digite o valor unitário</span>' }
+        },
+        submitHandler: function (form) {
+            var options = {
+                beforeSubmit: showRequest,
+                success: showResponse,
+                resetForm: true
+            };
+            $(form).ajaxSubmit(options);
+            return false;
+        },
+        errorLabelContainer: $('#msgs-new-provider')
+    });
+    function showRequest(formData, jqForm, options) {
+        $('#msgs-new-provider').html('<span style="color: #01a620;">Enviado...</span>');
+        $('#msgs-new-provider').show();
+    }
+    function showResponse(data, jqForm) {
+        switch ($.trim(data)) {
+            case 'true':
+                $('#msgs-new-provider').html('<span style="color: #01a620;">Enviado com sucesso! Verifique seu e-mail!</span>');
+                $('#msgs-new-provider').show();
+                break;
+            case 'false':
+                $('#msgs-new-provider').html('<span style="color: #c22d43;">Ocorreu um erro inesperado</span>');
+                $('#msgs-new-provider').show();
+                break;
+        }
+        setTimeout(function () {
+            $('#msgs-new-provider').html('');
+        }, 5000);
+    }
+}
+
+function new_client(){
+    $('#new-client').validate({
+        rules: {
+            'nomeCliente': { required: true },
+            'cpfCliente': { required: true },
+            'telefoneCliente': { required: true },
+            'emailCliente': { required: true, email: true }
+        },
+        messages: {
+            'nomeCliente': { required: '<span style="color: #c22d43;"> Digite o nome</span>' },
+            'cpfCliente': { required: '<span style="color: #c22d43;"> Digite o CPF</span>' },
+            'telefoneCliente': { required: '<span style="color: #c22d43;"> Digite o telefone</span>' },
+            'emailCliente': { required: '<span style="color: #c22d43;"> Digite o e-mail</span>', email: '<span style="color: #c22d43;"> Digite o e-mail corretamente</span>' }
         },
         submitHandler: function (form) {
             var options = {

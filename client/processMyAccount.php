@@ -8,15 +8,8 @@
 	$cpf = $_POST['cpf'];
 	$telefone = $_POST['telefone'];
 	$email = $_POST['email'];
-	$cep = $_POST['cep'];
-	$estado = $_POST['estado'];
-	$cidade = $_POST['cidade'];
-	$bairro = $_POST['bairro'];
-	$rua = $_POST['rua'];
-	$numero = $_POST['numero'];
 
-
-	$query = "UPDATE tb_cliente SET nomeCliente = '$nome', cpfCliente = '$cpf', telefoneCliente = '$telefone', emailCliente = '$email', cepCliente = '$cep', estadoCliente = '$estado', cidadeCliente = '$cidade', bairroCliente = '$bairro', ruaCliente = '$rua', numeroCliente = '$numero' WHERE idCliente = '$idCliente'";
+	$query = "UPDATE tb_cliente SET nomeCliente = '$nome', cpfCliente = '$cpf', telefoneCliente = '$telefone', emailCliente = '$email' WHERE idCliente = '$idCliente'";
 	$exec_query = mysqli_query($conexao, $query);
 
 	if ($exec_query) {

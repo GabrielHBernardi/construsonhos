@@ -38,6 +38,17 @@
       <li><a class="" href="listProvider.php">Listar todos</a></li>
     </ul>
   </li>
+  <li class="sub-menu">
+    <a href="javascript:;" class="">
+                  <i class="fas fa-users"></i>
+                  <span>Clientes</span>
+                  <span class="menu-arrow arrow_carrot-right"></span>
+              </a>
+    <ul class="sub">
+      <li><a class="" href="newClient.php">Cadastrar novo</a></li>
+      <li><a class="" href="listClient.php">Listar todos</a></li>
+    </ul>
+  </li>
   <!-- <li class="sub-menu">
     <a href="javascript:;" class="">
                   <i class="icon_desktop"></i>

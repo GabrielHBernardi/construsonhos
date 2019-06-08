@@ -27,18 +27,18 @@
         <!--overview start-->
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-laptop"></i>Editar material</h3>
+            <h3 class="page-header"><i class="fa fa-laptop"></i>Editar cliente</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="index.php">Início</a></li>
-              <li><i class="fa fa-laptop"></i>Editar material</li>
+              <li><i class="fa fa-laptop"></i>Editar cliente</li>
             </ol>
           </div>
         </div>
 
         <?php
-          $idMaterial = filter_input(INPUT_GET, 'idMaterial', FILTER_SANITIZE_NUMBER_INT);
+          $idCliente = filter_input(INPUT_GET, 'idCliente', FILTER_SANITIZE_NUMBER_INT);
 
-          $query = "SELECT * FROM tb_material WHERE idMaterial = '$idMaterial'";
+          $query = "SELECT * FROM tb_cliente WHERE idCliente = '$idCliente'";
 
           $exec_query = mysqli_query($conexao, $query);
 
@@ -49,26 +49,26 @@
           <div class="col-lg-6" style="width: 100%;">
             <section class="panel">
               <div class="panel-body">
-                <form style="display: flex;flex-wrap: wrap;justify-content: space-between;" role="form" id="new-material" action="processEditMaterial.php" method="post">
-                  <input type="hidden" name="idMaterial" value="<?php echo $row['idMaterial']; ?>">
+                <form style="display: flex;flex-wrap: wrap;justify-content: space-between;" role="form" id="new-client" action="processEditClient.php" method="post">
+                  <input type="hidden" name="idCliente" value="<?php echo $row['idCliente']; ?>">
                   <div class="form-group inteira">
                     <label for="exampleInputPassword1">Nome</label>
-                    <input type="text" class="form-control" name="nomeMaterial" placeholder="Digite o nome do material" value="<?php echo $row['nomeMaterial']; ?>">
+                    <input type="text" class="form-control" name="nomeCliente" placeholder="Digite o nome" value="<?php echo $row['nomeCliente']; ?>">
                   </div>
                   <div class="form-group inteira">
-                    <label for="exampleInputPassword1">Marca</label>
-                    <input type="text" class="form-control" name="marcaMaterial" placeholder="Digite a marca do material" value="<?php echo $row['marcaMaterial']; ?>">
+                    <label for="exampleInputPassword1">CPF</label>
+                    <input type="text" class="form-control" name="cpfCliente" placeholder="Digite o CPF" id="cpf" value="<?php echo $row['cpfCliente']; ?>">
                   </div>
                   <div class="form-group inteira">
-                    <label for="exampleInputPassword1">Fornecedor</label>
-                    <input type="text" class="form-control" name="idFornecedor" placeholder="Selecione o fornecedor" value="<?php echo $row['idFornecedor']; ?>">
+                    <label for="exampleInputPassword1">Telefone</label>
+                    <input type="text" class="form-control" name="telefoneCliente" placeholder="Digite o telefone" id="telefone" value="<?php echo $row['telefoneCliente']; ?>">
                   </div>
-                  <div style="width: 100%;" class="form-group meia">
-                    <label for="exampleInputPassword1">Valor unitário</label>
-                    <input type="text" class="form-control" name="valorUnitarioMaterial" id="valorUnitario" placeholder="Digite o valor unitário" value="<?php echo $row['valorUnitarioMaterial']; ?>">
+                  <div class="form-group inteira">
+                    <label for="exampleInputPassword1">E-mail</label>
+                    <input type="text" class="form-control" name="emailCliente" placeholder="Digite o e-mail" value="<?php echo $row['emailCliente']; ?>">
                   </div>
                   <div class="buttons">
-                    <button type="submit" class="btn btn-primary">Editar material</button>
+                    <button type="submit" class="btn btn-primary">Editar cliente</button>
                   </div>
                   <div id="msgs-new-provider">
                     <?php

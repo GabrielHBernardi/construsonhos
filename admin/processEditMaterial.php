@@ -17,7 +17,7 @@
 		header('Location: listMaterial.php');
 		$_SESSION['msgEditProvider'] = '<label class="msgLogin"><span style="color: #01a620;">Material editado com sucesso</span></label>';
 	} else {
-		header("Location: editMaterial.php?idMaterial=$id");
+		header("Location: editMaterial.php?idMaterial=$idMaterial");
 		$_SESSION['msgNewProvider'] = '<label class="msgsNewProvider"><span style="color: #c22d43;">Erro ao editar material</span></label>';
 	}
 ?>
