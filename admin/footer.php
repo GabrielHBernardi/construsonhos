@@ -1,4 +1,4 @@
-<!-- javascripts -->
+  <!-- javascripts -->
   <script src="assets/js/jquery-3.4.1.min.js"></script>
   <script src="assets/js/jquery.js"></script>
   <script src="assets/js/jquery-ui-1.10.4.min.js"></script>
@@ -58,3 +58,6 @@
   <script type="text/javascript" src="assets/js/ga.js"></script>
   <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />

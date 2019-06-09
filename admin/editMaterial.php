@@ -61,7 +61,22 @@
                   </div>
                   <div class="form-group inteira">
                     <label for="exampleInputPassword1">Fornecedor</label>
-                    <input type="text" class="form-control" name="idFornecedor" placeholder="Selecione o fornecedor" value="<?php echo $row['idFornecedor']; ?>">
+                    <select style="margin-bottom: 0px;" class="form-control m-bot15" name="idFornecedor">
+                        <option disabled selected>Selecione um fornecedor</option>
+                        <?php
+                          include "../config/conectionDB.php";
+
+                          $query = "SELECT * FROM tb_fornecedor";
+
+                          $exec_query = mysqli_query($conexao, $query);
+
+                          while($row_query = mysqli_fetch_assoc($exec_query)){
+                        ?>
+                          <option value="<?php echo $row_query['idFornecedor']; ?>" <?php if ($row_query['idFornecedor'] == $row['idFornecedor']) { echo "Selected"; } ?> ><?php echo $row_query['nomeFornecedor']; ?></option>
+                        <?php
+                          }
+                        ?>
+                    </select>
                   </div>
                   <div style="width: 100%;" class="form-group meia">
                     <label for="exampleInputPassword1">Valor unitário</label>

@@ -12,8 +12,8 @@
                   <span class="menu-arrow arrow_carrot-right"></span>
               </a>
     <ul class="sub">
-      <li><a class="" href="registerService.php">Registrar novo</a></li>
-      <li><a class="" href="form_validation.html">Listar todos serviços</a></li>
+      <li><a class="" href="newService.php">Registrar novo</a></li>
+      <li><a class="" href="listService.php">Listar todos serviços</a></li>
     </ul>
   </li>
   <li class="sub-menu">

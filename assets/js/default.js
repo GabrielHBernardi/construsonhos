@@ -18,6 +18,29 @@ $(document).ready(function(){
         return true;
     });
 
+    jQuery.validator.addMethod('validacpf', function (value, element) {
+        value = jQuery.trim(value);
+
+        value = value.replace('.', '');
+        value = value.replace('.', '');
+        cpf = value.replace('-', '');
+        while (cpf.length < 11) cpf = "0" + cpf;
+        var expReg = /^0+$|^1+$|^2+$|^3+$|^4+$|^5+$|^6+$|^7+$|^8+$|^9+$/;
+        var a = [];
+        var b = new Number;
+        var c = 11;
+        for (i = 0; i < 11; i++) {
+            a[i] = cpf.charAt(i);
+            if (i < 9) b += (a[i] * --c);
+        }
+        if ((x = b % 11) < 2) { a[9] = 0 } else { a[9] = 11 - x }
+        b = 0;
+        c = 11;
+        for (y = 0; y < 10; y++) b += (a[y] * c--);
+        if ((x = b % 11) < 2) { a[10] = 0; } else { a[10] = 11 - x; }
+        if ((cpf.charAt(9) != a[9]) || (cpf.charAt(10) != a[10]) || cpf.match(expReg)) return false;
+        return true;
+    }, 'Informe um CPF válido!');
 
     jQuery.validator.addMethod('celular', function (value, element) {
         value = value.replace("(","");
@@ -47,7 +70,7 @@ function validate_form_register_new_user(){
     $('#register-form').validate({
         rules: {
             'nome': { required: true},
-            'cpf': { required: true},
+            'cpf': { required: true, validacpf: true},
             'email': { required: true, email: true},
             'telefone': { required: true, celular: true},
             'cep': { required: true},
@@ -61,7 +84,7 @@ function validate_form_register_new_user(){
         },
         messages: {
             'nome': { required: '<span style="color: #c22d43;"> Digite seu nome</span>' },
-            'cpf': { required: '<span style="color: #c22d43;"> Digite seu CPF</span>' },
+            'cpf': { required: '<span style="color: #c22d43;"> Digite seu CPF</span>', validacpf: '<span style="color: #c22d43;"> CPF inválido</span>' },
             'email': { required: '<span style="color: #c22d43;"> Digite seu e-mail</span>', email: '<span style="color: #c22d43">E-mail inv&aacute;lido</span>' },
             'telefone': { required: '<span style="color: #c22d43;"> Digite seu telefone</span>', celular: '<span style="color: #c22d43;">Digite um telefone válido</span>' },
             'cep': { required: '<span style="color: #c22d43;"> Digite seu CEP</span>' },

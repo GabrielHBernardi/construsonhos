@@ -10,6 +10,40 @@
 
 @import url(line-icons.css);
 
+.input-align-endereco {
+    border: none;
+    outline: none;
+    margin: 0px 5px;
+    color: #8e8e93;
+    width: 10px;
+    background: transparent;
+    pointer-events: none;
+}
+
+.form-control.endereco {
+    border: none;
+    border-bottom: 1px solid #c7c7cc;
+    text-align: center;
+}
+.form-control.endereco:nth-child(1) {
+    width: 95px;
+}
+.form-control.endereco:nth-child(3) {
+    width: 45px;
+}
+.form-control.endereco:nth-child(5) {
+    width: 150px;
+}
+.form-control.endereco:nth-child(7) {
+    width: 150px;
+}
+.form-control.endereco:nth-child(9) {
+    width: 200px;
+}
+.form-control.endereco:nth-child(11) {
+    width: 56px;
+}
+
 .msgLoginAdmin {
     width: 100%;
     text-align: center;

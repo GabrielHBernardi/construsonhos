@@ -38,7 +38,6 @@
   <link href="assets/css/daterangepicker.css" rel="stylesheet" />
 
 
-
   <!-- =======================================================
     Theme Name: NiceAdmin
     Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/

@@ -3,6 +3,42 @@ $(document).ready(function(){
     new_material();
     new_client();
 
+    jQuery.validator.addMethod('validacpf', function (value, element) {
+        value = jQuery.trim(value);
+
+        value = value.replace('.', '');
+        value = value.replace('.', '');
+        cpf = value.replace('-', '');
+        while (cpf.length < 11) cpf = "0" + cpf;
+        var expReg = /^0+$|^1+$|^2+$|^3+$|^4+$|^5+$|^6+$|^7+$|^8+$|^9+$/;
+        var a = [];
+        var b = new Number;
+        var c = 11;
+        for (i = 0; i < 11; i++) {
+            a[i] = cpf.charAt(i);
+            if (i < 9) b += (a[i] * --c);
+        }
+        if ((x = b % 11) < 2) { a[9] = 0 } else { a[9] = 11 - x }
+        b = 0;
+        c = 11;
+        for (y = 0; y < 10; y++) b += (a[y] * c--);
+        if ((x = b % 11) < 2) { a[10] = 0; } else { a[10] = 11 - x; }
+        if ((cpf.charAt(9) != a[9]) || (cpf.charAt(10) != a[10]) || cpf.match(expReg)) return false;
+        return true;
+    }, 'Informe um CPF válido!');
+
+    $(function() {
+      $('#reservation').daterangepicker({
+        startDate: moment(),
+        endDate: moment(),
+        locale: {
+          format: 'DD/MM/YYYY',
+          cancelLabel: 'Cancelar',
+          applyLabel: 'Aplicar'
+        }
+      });
+    });
+
     $('#telefone').mask('(99) 999999999');
     $('#cpf').mask('999.999.999-99');
     $('#cep').mask('99999-999');
@@ -154,13 +190,13 @@ function new_client(){
     $('#new-client').validate({
         rules: {
             'nomeCliente': { required: true },
-            'cpfCliente': { required: true },
+            'cpfCliente': { required: true, validacpf: true },
             'telefoneCliente': { required: true },
             'emailCliente': { required: true, email: true }
         },
         messages: {
             'nomeCliente': { required: '<span style="color: #c22d43;"> Digite o nome</span>' },
-            'cpfCliente': { required: '<span style="color: #c22d43;"> Digite o CPF</span>' },
+            'cpfCliente': { required: '<span style="color: #c22d43;"> Digite o CPF</span>', validacpf: '<span style="color: #c22d43;"> CPF inválido</span>' },
             'telefoneCliente': { required: '<span style="color: #c22d43;"> Digite o telefone</span>' },
             'emailCliente': { required: '<span style="color: #c22d43;"> Digite o e-mail</span>', email: '<span style="color: #c22d43;"> Digite o e-mail corretamente</span>' }
         },
