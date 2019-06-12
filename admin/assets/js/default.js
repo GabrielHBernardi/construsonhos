@@ -42,7 +42,7 @@ $(document).ready(function(){
     $('#telefone').mask('(99) 999999999');
     $('#cpf').mask('999.999.999-99');
     $('#cep').mask('99999-999');
-    $('#valorUnitario').mask('000.000.000.000.000,00', {reverse: true});
+    $('#valorUnitario').mask('99.999.999,99', {reverse: true});
 
     setTimeout(function () {
         $('#msgs-edit-provider').hide();

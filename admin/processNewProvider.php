@@ -13,7 +13,7 @@
 	$rua = filter_input(INPUT_POST, 'rua', FILTER_SANITIZE_STRING);
 	$numero = filter_input(INPUT_POST, 'numero', FILTER_SANITIZE_STRING);
 
-	$query = "SELECT * FROM tb_fornecedor";
+	$query = "SELECT emailFornecedor FROM tb_fornecedor WHERE emailFornecedor = '$email'";
 
 	$exec_query = mysqli_query($conexao, $query);
 
@@ -23,16 +23,26 @@
 		header('Location: newProvider.php');
 		$_SESSION['msgNewProvider'] = '<label class="msgsNewProvider"><span style="color: #c22d43;">E-mail já cadastrado</span></label>';
 	} else {
-		$insere_dados = "INSERT INTO tb_fornecedor (nomeFornecedor, telefoneFornecedor, emailFornecedor, cepFornecedor, estadoFornecedor, cidadeFornecedor, bairroFornecedor, ruaFornecedor, numeroFornecedor) VALUES ('$nome', '$telefone' , '$email', '$cep', '$estado', '$cidade', '$bairro', '$rua', '$numero')";
+		$query_nome = "SELECT nomeFornecedor FROM tb_fornecedor WHERE nomeFornecedor = '$nome'";
 
-		$resultado_insercao = mysqli_query($conexao, $insere_dados);
+		$exec_query_nome = mysqli_query($conexao, $query_nome);
 
-		if ($resultado_insercao) {
-			header('Location: listProvider.php');
-			$_SESSION['msgEditProvider'] = '<label class="msgLogin"><span style="color: #01a620;">Cadastro efetuado com sucesso</span></label>';
-		} else {
+		$row_query_nome = mysqli_fetch_assoc($exec_query_nome);
+		if ($nome == $row_query_nome['nomeFornecedor']) {
 			header('Location: newProvider.php');
-			$_SESSION['msgNewProvider'] = '<label class="msgsNewProvider"><span style="color: #c22d43;">Erro ao efetuar cadastro</span></label>';
+			$_SESSION['msgNewProvider'] = '<label class="msgsNewProvider"><span style="color: #c22d43;">Nome já cadastrado</span></label>';
+		} else {
+			$insere_dados = "INSERT INTO tb_fornecedor (nomeFornecedor, telefoneFornecedor, emailFornecedor, cepFornecedor, estadoFornecedor, cidadeFornecedor, bairroFornecedor, ruaFornecedor, numeroFornecedor) VALUES ('$nome', '$telefone' , '$email', '$cep', '$estado', '$cidade', '$bairro', '$rua', '$numero')";
+
+			$resultado_insercao = mysqli_query($conexao, $insere_dados);
+
+			if ($resultado_insercao) {
+				header('Location: listProvider.php');
+				$_SESSION['msgEditProvider'] = '<label class="msgLogin"><span style="color: #01a620;">Cadastro efetuado com sucesso</span></label>';
+			} else {
+				header('Location: newProvider.php');
+				$_SESSION['msgNewProvider'] = '<label class="msgsNewProvider"><span style="color: #c22d43;">Erro ao efetuar cadastro</span></label>';
+			}
 		}
 	}
 ?>

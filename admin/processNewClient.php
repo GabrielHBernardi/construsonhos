@@ -8,7 +8,7 @@
 	$telefoneCliente = filter_input(INPUT_POST, 'telefoneCliente', FILTER_SANITIZE_STRING);
 	$emailCliente = filter_input(INPUT_POST, 'emailCliente', FILTER_SANITIZE_EMAIL);
 
-	$query = "SELECT * FROM tb_cliente";
+	$query = "SELECT cpfCliente FROM tb_cliente WHERE cpfCliente = '$cpfCliente'";
 
 	$exec_query = mysqli_query($conexao, $query);
 
@@ -18,6 +18,11 @@
 		header('Location: newClient.php');
 		$_SESSION['msgNewProvider'] = '<label class="msgsNewProvider"><span style="color: #c22d43;">CPF já cadastrado</span></label>';
 	} else {
+		$query_email = "SELECT emailCliente FROM tb_cliente WHERE emailCliente = '$emailCliente'";
+		$exec_query_email = mysqli_query($conexao, $query_email);
+
+		$row_query = mysqli_fetch_assoc($exec_query_email);
+		
 		if ($emailCliente == $row_query['emailCliente']) {
 			header('Location: newClient.php');
 			$_SESSION['msgNewProvider'] = '<label class="msgsNewProvider"><span style="color: #c22d43;">E-mail já cadastrado</span></label>';

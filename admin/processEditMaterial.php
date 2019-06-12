@@ -8,6 +8,7 @@
 	$marcaMaterial = filter_input(INPUT_POST, 'marcaMaterial', FILTER_SANITIZE_STRING);
 	$idFornecedor = filter_input(INPUT_POST, 'idFornecedor', FILTER_SANITIZE_STRING);
 	$valorUnitarioMaterial = filter_input(INPUT_POST, 'valorUnitarioMaterial', FILTER_SANITIZE_STRING);
+	$valorUnitarioMaterial = str_replace(['.',','], ['', '.'], $valorUnitarioMaterial);
 
 	$query = "UPDATE tb_material SET nomeMaterial='$nomeMaterial', marcaMaterial='$marcaMaterial', idFornecedor='$idFornecedor', valorUnitarioMaterial='$valorUnitarioMaterial' WHERE idMaterial='$idMaterial'";
 

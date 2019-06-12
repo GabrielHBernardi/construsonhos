@@ -443,14 +443,25 @@
 				</div>
 				<!-- /contact -->
 
+				<?php
+					if(!empty($_POST['emailContato'])){
+						if(mail('gabriel.h.bernardi@gmail.com', 'Mensagem de contato - Construsonhos', $_POST['mensagemContato'], $_POST['emailContato'])){
+							die('true');
+						} else {
+							die('false');
+						}
+					}
+				?>
+
 				<!-- contact form -->
 				<div class="col-md-8 col-md-offset-2">
-					<form class="contact-form" method="post" action="processSendEmail.php">
-						<input style="border: 2px solid #988e8e;" type="text" class="input" required placeholder="Nome">
-						<input style="border: 2px solid #988e8e;" type="email" required class="input" placeholder="E-mail">
-						<textarea style="border: 2px solid #988e8e;" class="input" required placeholder="Mensagem"></textarea>
+					<form class="contact-form" method="POST" action="">
+						<input style="border: 2px solid #988e8e;" type="text" class="input" name="nomeContato" placeholder="Nome">
+						<input style="    border: 2px solid #988e8e;height: 40px;width: calc(50% - 10px);background: #F4F4F4;color: #354052;padding: 0px 10px;opacity: 0.5;-webkit-transition: 0.2s border-color, 0.2s opacity;transition: 0.2s border-color, 0.2s opacity;" type="emailContato" class="input" placeholder="E-mail">
+						<textarea style="border: 2px solid #988e8e;" class="input" name="mensagemContato" placeholder="Mensagem"></textarea>
 						<button class="main-btn">Enviar mensagem</button>
 					</form>
+					<div id="contact-form-msgs"></div>
 				</div>
 				<!-- /contact form -->
 

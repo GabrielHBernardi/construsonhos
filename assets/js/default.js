@@ -4,6 +4,7 @@ $(document).ready(function(){
     validate_form_login_user();
     validate_form_password_user();
     validate_form_login_admin();
+    contact_form();
 
     $('#telefone').mask('(99) 999999999');
     $('#cpf').mask('999.999.999-99');
@@ -42,29 +43,51 @@ $(document).ready(function(){
         return true;
     }, 'Informe um CPF válido!');
 
-    jQuery.validator.addMethod('celular', function (value, element) {
-        value = value.replace("(","");
-        value = value.replace(")", "");
-        value = value.replace("-", "");
-        value = value.replace(" ", "").trim();
-        if (value == '0000000000') {
-            return (this.optional(element) || false);
-        } else if (value == '00000000000') {
-            return (this.optional(element) || false);
-        } 
-        if (["00", "01", "02", "03", , "04", , "05", , "06", , "07", , "08", "09", "10"]
-        .indexOf(value.substring(0, 2)) != -1) {
-            return (this.optional(element) || false);
-        }
-        if (value.length < 10 || value.length > 11) {
-            return (this.optional(element) || false);
-        }
-        if (["6", "7", "8", "9"].indexOf(value.substring(2, 3)) == -1) {
-            return (this.optional(element) || false);
-        }
-        return (this.optional(element) || true);
-    }, 'Informe um número de telefone celular válido!');
 });
+
+function contact_form(){
+        $('#contact-form').validate({
+            rules: {
+                'nomeContato': { required: true },
+                'emailContato': { required: true, email: true },
+                'mensagemContato': { required: true },
+            },
+            messages: {
+                'nomeContato': { required:  '<span style="color: #ed3340">Digite seu nome</span>' },
+                'emailContato': { required:  '<span style="color: #ed3340">Digite seu e-mail</span>', email: '<span style="color: #ed3340">E-mail inválido</span>'},
+                'mensagemContato': { required:  '<span style="color: #ed3340">Digite sua mensagem</span>' },
+            },
+            submitHandler: function (form) {
+                var options = {
+                    beforeSubmit: showRequest,
+                    success: showResponse,
+                    resetForm: true
+                };
+                $(form).ajaxSubmit(options);
+                return false;
+            },
+            errorLabelContainer: $('#contact-form-msgs')
+        });
+        function showRequest(formData, jqForm, options) {
+            $('#contact-form-msgs').html('<span style="color: #464c49">Enviando...</span><br/>',);
+                $('#contact-form-msgs').show();
+        }
+        function showResponse(data, jqForm) {
+            switch ($.trim(data)) {
+                case 'true':
+                    $('#contact-form-msgs').html('<span style="color: #017744;">Mensagem enviada com sucesso</span><br/>');
+                    $('#contact-form-msgs').show();
+                    break;
+                case 'false':
+                    $('#contact-form-msgs').html('<span style="color: #ed3340;">Erro inesperado</span><br/>');
+                    $('#contact-form-msgs').show();
+                    break;
+            }
+            setTimeout(function () {
+                $('#contact-form-msgs').html('');
+            }, 5000);
+        }
+    }
 
 function validate_form_register_new_user(){
     $('#register-form').validate({
@@ -72,7 +95,7 @@ function validate_form_register_new_user(){
             'nome': { required: true},
             'cpf': { required: true, validacpf: true},
             'email': { required: true, email: true},
-            'telefone': { required: true, celular: true},
+            'telefone': { required: true},
             'cep': { required: true},
             'estado': { required: true},
             'cidade': { required: true},
@@ -86,7 +109,7 @@ function validate_form_register_new_user(){
             'nome': { required: '<span style="color: #c22d43;"> Digite seu nome</span>' },
             'cpf': { required: '<span style="color: #c22d43;"> Digite seu CPF</span>', validacpf: '<span style="color: #c22d43;"> CPF inválido</span>' },
             'email': { required: '<span style="color: #c22d43;"> Digite seu e-mail</span>', email: '<span style="color: #c22d43">E-mail inv&aacute;lido</span>' },
-            'telefone': { required: '<span style="color: #c22d43;"> Digite seu telefone</span>', celular: '<span style="color: #c22d43;">Digite um telefone válido</span>' },
+            'telefone': { required: '<span style="color: #c22d43;"> Digite seu telefone</span>' },
             'cep': { required: '<span style="color: #c22d43;"> Digite seu CEP</span>' },
             'estado': { required: '<span style="color: #c22d43;"> Digite seu estado</span>' },
             'cidade': { required: '<span style="color: #c22d43;"> Digite sua cidade</span>' },
