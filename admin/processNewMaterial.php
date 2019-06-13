@@ -5,7 +5,7 @@
 
 	$nomeMaterial = filter_input(INPUT_POST, 'nomeMaterial', FILTER_SANITIZE_STRING);
 	$marcaMaterial = filter_input(INPUT_POST, 'marcaMaterial', FILTER_SANITIZE_STRING);
-	$idFornecedor = filter_input(INPUT_POST, 'idFornecedor', FILTER_SANITIZE_EMAIL);
+	$idFornecedor = filter_input(INPUT_POST, 'idFornecedor', FILTER_SANITIZE_STRING);
 	$valorUnitarioMaterial = filter_input(INPUT_POST, 'valorUnitarioMaterial', FILTER_SANITIZE_STRING);
 	$valorUnitarioMaterial = str_replace(['.',','], ['', '.'], $valorUnitarioMaterial);
 

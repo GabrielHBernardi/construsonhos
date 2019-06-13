@@ -70,36 +70,6 @@
                         ?>
                     </select>
                   </div>
-                  <div class="form-group inteira">
-                    <label for="exampleInputPassword1">Tipo de serviço</label>
-                    <select style="margin-bottom: 0px;" class="form-control m-bot15" name="tipoServico">
-                      <option disabled selected>Selecione o tipo de serviço</option>
-                      <option value="Construção">Construção</option>
-                      <option value="Reforma">Reforma</option>
-                      <option value="Manutenção elétrica">Manutenção elétrica</option>
-                      <option value="Manutenção hidráulica">Manutenção hidráulica</option>
-                    </select>
-                  </div>
-                  <div class="form-group inteira">
-                    <label for="exampleInputPassword1">Endereço</label>
-                    <div style="display: flex;">
-                      <input type="text" class="form-control endereco" name="endereco[]" id="cep" placeholder="CEP" onblur="pesquisacep(this.value);">
-                      <input type="text" class="input-align-endereco" name="endereco[]" value=" - " readonly="readonly">
-                      <input type="text" class="form-control endereco" name="endereco[]" id="estado" maxlength="2" placeholder="UF">
-                      <input type="text" class="input-align-endereco" name="endereco[]" value=" - ">
-                      <input type="text" class="form-control endereco" name="endereco[]" id="cidade" placeholder="Cidade">
-                      <input type="text" class="input-align-endereco" name="endereco[]" value=" - ">
-                      <input type="text" class="form-control endereco" name="endereco[]" id="bairro" placeholder="Bairro">
-                      <input type="text" class="input-align-endereco" name="endereco[]" value=" - ">
-                      <input type="text" class="form-control endereco" name="endereco[]" id="rua" placeholder="Rua">
-                      <input type="text" class="input-align-endereco" name="endereco[]" value=" - ">
-                      <input type="text" class="form-control endereco" name="endereco[]" placeholder="Nº">
-                    </div>
-                  </div>
-                  <div class="form-group inteira">
-                    <label for="exampleInputPassword1">Data serviço</label>
-                    <input id="reservation" type="text" class="form-control" name="dataServico" />
-                  </div>
                   <div class="buttons">
                     <button type="submit" class="btn btn-primary">Editar serviço</button>
                   </div>

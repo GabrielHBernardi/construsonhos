@@ -443,16 +443,6 @@
 				</div>
 				<!-- /contact -->
 
-				<?php
-					if(!empty($_POST['emailContato'])){
-						if(mail('gabriel.h.bernardi@gmail.com', 'Mensagem de contato - Construsonhos', $_POST['mensagemContato'], $_POST['emailContato'])){
-							die('true');
-						} else {
-							die('false');
-						}
-					}
-				?>
-
 				<!-- contact form -->
 				<div class="col-md-8 col-md-offset-2">
 					<form class="contact-form" method="POST" action="">

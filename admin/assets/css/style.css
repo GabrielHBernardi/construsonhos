@@ -20,6 +20,20 @@
     pointer-events: none;
 }
 
+.form-control.maodeobra {
+    border: none;
+    border-bottom: 1px solid #c7c7cc;
+    text-align: center;
+}
+.form-control.maodeobra:nth-child(1) {
+    width: 450px;
+    margin-left: 10px;
+}
+.form-control.maodeobra:nth-child(2) {
+    width: 250px;
+    margin-left: 10px;
+}
+
 .form-control.endereco {
     border: none;
     border-bottom: 1px solid #c7c7cc;
@@ -27,21 +41,27 @@
 }
 .form-control.endereco:nth-child(1) {
     width: 95px;
+    margin-left: 10px;
+}
+.form-control.endereco:nth-child(2) {
+    width: 45px;
+    margin-left: 10px;
 }
 .form-control.endereco:nth-child(3) {
-    width: 45px;
+    width: 150px;
+    margin-left: 10px;
+}
+.form-control.endereco:nth-child(4) {
+    width: 150px;
+    margin-left: 10px;
 }
 .form-control.endereco:nth-child(5) {
-    width: 150px;
-}
-.form-control.endereco:nth-child(7) {
-    width: 150px;
-}
-.form-control.endereco:nth-child(9) {
     width: 200px;
+    margin-left: 10px;
 }
-.form-control.endereco:nth-child(11) {
+.form-control.endereco:nth-child(6) {
     width: 56px;
+    margin-left: 10px;
 }
 
 .msgLoginAdmin {
@@ -70,6 +90,15 @@
 
 .form-group label {
     font-weight: 900;
+}
+
+.btn-primary.blue {
+    background-color: #3d3dd2;
+    border-color: #3d3dd2;
+}
+.btn-primary.blue:hover {
+    background-color: #ffffff;
+    color: #3d3dd2;
 }
 
 .btn-primary.yellow {

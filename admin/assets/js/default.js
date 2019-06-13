@@ -2,6 +2,7 @@ $(document).ready(function(){
     new_provider();
     new_material();
     new_client();
+    new_service();
 
     jQuery.validator.addMethod('validacpf', function (value, element) {
         value = jQuery.trim(value);
@@ -81,8 +82,80 @@ $(document).ready(function(){
         $('#confirm-delete').modal({show: true});
         return false;    
     });
+
+    $('a[data-confirm-service]').click(function(ev){
+        var href = $(this).attr('href');
+        if(!$('#confirm-delete').length){
+            $('body').append('<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header bg-danger text-white">EXCLUIR SERVIÇO<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza de que deseja excluir o serviço selecionado?</div><div class="modal-footer"><button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataComfirmOK">Apagar</a></div></div></div></div>');
+        }
+        $('#dataComfirmOK').attr('href', href);
+        $('#confirm-delete').modal({show: true});
+        return false;    
+    });
     
 });
+
+function new_service(){
+    $('#new-service').validate({
+        rules: {
+            'idCliente': { required: true },
+            'tipoServico': { required: true },
+            'dataServico': { required: true },
+            'statusServico': { required: true },
+            'cepServico': { required: true },
+            'estadoServico': { required: true },
+            'cidadeServico': { required: true },
+            'bairroServico': { required: true },
+            'ruaServico': { required: true },
+            'numeroServico': { required: true },
+            'metroQuadradoServico': { required: true },
+            'valorMaoDeObraServico': { required: true }
+        },
+        messages: {
+            'idCliente': { required: '<span style="color: #c22d43;"> Selecione o cliente</span>' },
+            'tipoServico': { required: '<span style="color: #c22d43;"> Selecione o tipo de serviço</span>' },
+            'dataServico': { required: '<span style="color: #c22d43;"> Selecione a data</span>' },
+            'statusServico': { required: '<span style="color: #c22d43;"> Selecione o status do serviço</span>' },
+            'cepServico': { required: '<span style="color: #c22d43;"> Digite o CEP</span>' },
+            'estadoServico': { required: '<span style="color: #c22d43;"> Digite o estado</span>' },
+            'cidadeServico': { required: '<span style="color: #c22d43;"> Digite a cidade</span>' },
+            'bairroServico': { required: '<span style="color: #c22d43;"> Digite o bairro</span>' },
+            'ruaServico': { required: '<span style="color: #c22d43;"> Digite a rua</span>' },
+            'numeroServico': { required: '<span style="color: #c22d43;"> Digite o número</span>' },
+            'metroQuadradoServico': { required: '<span style="color: #c22d43;"> Digite a quantidade total de metros quadrados</span>' },
+            'valorMaoDeObraServico': { required: '<span style="color: #c22d43;"> Digite o valor da mão de obra</span>' }
+        },
+        submitHandler: function (form) {
+            var options = {
+                beforeSubmit: showRequest,
+                success: showResponse,
+                resetForm: true
+            };
+            $(form).ajaxSubmit(options);
+            return false;
+        },
+        errorLabelContainer: $('#msgs-new-provider')
+    });
+    function showRequest(formData, jqForm, options) {
+        $('#msgs-new-provider').html('<span style="color: #01a620;">Enviado...</span>');
+        $('#msgs-new-provider').show();
+    }
+    function showResponse(data, jqForm) {
+        switch ($.trim(data)) {
+            case 'true':
+                $('#msgs-new-provider').html('<span style="color: #01a620;">Enviado com sucesso! Verifique seu e-mail!</span>');
+                $('#msgs-new-provider').show();
+                break;
+            case 'false':
+                $('#msgs-new-provider').html('<span style="color: #c22d43;">Ocorreu um erro inesperado</span>');
+                $('#msgs-new-provider').show();
+                break;
+        }
+        setTimeout(function () {
+            $('#msgs-new-provider').html('');
+        }, 5000);
+    }
+}
 
 function new_provider(){
     $('#new-provider').validate({
