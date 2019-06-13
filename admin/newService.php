@@ -65,8 +65,8 @@
                       <option disabled selected>Selecione o tipo de serviço</option>
                       <option value="Construção">Construção</option>
                       <option value="Reforma">Reforma</option>
-                      <option value="Manutenção elétrica">Manutenção elétrica</option>
-                      <option value="Manutenção hidráulica">Manutenção hidráulica</option>
+                      <option value="Manutenção Elétrica">Manutenção Elétrica</option>
+                      <option value="Manutenção Hidráulica">Manutenção Hidráulica</option>
                     </select>
                   </div>
                   <div class="form-group inteira">
@@ -77,10 +77,11 @@
                     <label for="exampleInputPassword1">Status do serviço</label>
                     <select style="margin-bottom: 0px;" class="form-control m-bot15" name="statusServico">
                       <option disabled selected>Selecione o status do serviço</option>
-                      <option value="Aceito">Aceito</option>
                       <option value="Aguardando aprovação">Aguardando aprovação</option>
+                      <option value="Aceito">Aceito</option>
+                      <option value="Cancelado/Recusado">Cancelado/Recusado</option>
                       <option value="Em andamento">Em andamento</option>
-                      <option value="Cancelado/Negado">Cancelado/Negado</option>
+                      <option value="Concluído">Concluído</option>
                     </select>
                   </div>
                   <div class="form-group inteira">

@@ -37,9 +37,9 @@
 
         <div id="msgs-edit-provider">
             <?php
-              if (isset($_SESSION['msgEditProvider'])) {
-                  echo $_SESSION['msgEditProvider'];
-                  unset($_SESSION['msgEditProvider']);
+              if (isset($_SESSION['msgNewProvider'])) {
+                  echo $_SESSION['msgNewProvider'];
+                  unset($_SESSION['msgNewProvider']);
               }
             ?>
           </div>
@@ -104,7 +104,7 @@
                       <div class="btn-group align">
                         <div style="display: flex; flex-direction: column; justify-content: center;">
                           <p style="font-weight: bold;margin: 0px;">Gerar</p>
-                          <a class="btn btn-primary blue" href="#"><i class="fas fa-paper-plane"></i></a>
+                          <a class="btn btn-primary blue" href="newCollectionLetter.php?idServico=<?php echo $row['idServico']; ?>"><i class="fas fa-paper-plane"></i></a>
                         </div>
                         <div style="display: flex; flex-direction: column; justify-content: center;">
                           <p style="font-weight: bold;margin: 0px;">Gerada</p>

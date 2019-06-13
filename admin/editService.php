@@ -49,7 +49,7 @@
           <div class="col-lg-6" style="width: 100%;">
             <section class="panel">
               <div class="panel-body">
-                <form style="display: flex;flex-wrap: wrap;justify-content: space-between;" role="form" id="new-service" action="teste.php" method="post">
+                <form style="display: flex;flex-wrap: wrap;justify-content: space-between;" role="form" id="new-service" action="processEditService.php" method="post">
                   <input type="hidden" name="idServico" value="<?php echo $row['idServico']; ?>">
                   <div class="form-group inteira">
                     <label for="exampleInputPassword1">Cliente</label>
@@ -69,6 +69,58 @@
                           }
                         ?>
                     </select>
+                  </div>
+                  <div class="form-group inteira">
+                    <label for="exampleInputPassword1">Tipo de serviço</label>
+                    <select style="margin-bottom: 0px;" class="form-control m-bot15" name="tipoServico">
+                      <option disabled>Selecione o tipo de serviço</option>
+                      <option value="Construção" <?php if ($row['tipoServico'] == 'Construção') { echo "Selected"; } ?> >Construção</option>
+                      <option value="Reforma" <?php if ($row['tipoServico'] == 'Reforma') { echo "Selected"; } ?> >Reforma</option>
+                      <option value="Manutenção Elétrica" <?php if ($row['tipoServico'] == 'Manutenção Elétrica') { echo "Selected"; } ?> >Manutenção Elétrica</option>
+                      <option value="Manutenção Hidráulica" <?php if ($row['tipoServico'] == 'Manutenção Hidráulica') { echo "Selected"; } ?> >Manutenção Hidráulica</option>
+                    </select>
+                  </div>
+                  <div class="form-group inteira">
+                    <label for="exampleInputPassword1">Data serviço</label>
+                    <input id="reservation" type="text" class="form-control" name="dataServico" value="<?php echo $row['dataServico']; ?>" />
+                  </div>
+                  <div class="form-group inteira">
+                    <label for="exampleInputPassword1">Status do serviço</label>
+                    <select style="margin-bottom: 0px;" class="form-control m-bot15" name="statusServico">
+                      <option disabled>Selecione o status do serviço</option>
+                      <option value="Aguardando aprovação" <?php if ($row['statusServico'] == 'Aguardando aprovação') { echo "Selected"; } ?> >Aguardando aprovação</option>
+                      <option value="Aceito" <?php if ($row['statusServico'] == 'Aceito') { echo "Selected"; } ?> >Aceito</option>
+                      <option value="Cancelado/Recusado" <?php if ($row['statusServico'] == 'Cancelado/Recusado') { echo "Selected"; } ?> >Cancelado/Recusado</option>
+                      <option value="Em andamento" <?php if ($row['statusServico'] == 'Em andamento') { echo "Selected"; } ?> >Em andamento</option>
+                      <option value="Concluído" <?php if ($row['statusServico'] == 'Concluído') { echo "Selected"; } ?> >Concluído</option>
+                    </select>
+                  </div>
+                  <div class="form-group inteira">
+                    <label for="exampleInputPassword1">Endereço</label>
+                    <div style="display: flex;">
+                      <input type="text" class="form-control endereco" name="cepServico" id="cep" placeholder="CEP" onblur="pesquisacep(this.value);" value="<?php echo $row['cepServico']; ?>">
+                      <input type="text" class="form-control endereco" name="estadoServico" id="estado" maxlength="2" placeholder="UF" value="<?php echo $row['estadoServico']; ?>">
+                      <input type="text" class="form-control endereco" name="cidadeServico" id="cidade" placeholder="Cidade" value="<?php echo $row['cidadeServico']; ?>">
+                      <input type="text" class="form-control endereco" name="bairroServico" id="bairro" placeholder="Bairro" value="<?php echo $row['bairroServico']; ?>">
+                      <input type="text" class="form-control endereco" name="ruaServico" id="rua" placeholder="Rua" value="<?php echo $row['ruaServico']; ?>">
+                      <input type="text" class="form-control endereco" name="numeroServico" placeholder="Nº" value="<?php echo $row['numeroServico']; ?>">
+                    </div>
+                  </div>
+                  <section class="panel" style="width: 100%;border-top: 1px solid #ccc;margin-bottom: 10px;">
+                    <header class="panel-heading">
+                      Itens serviço (checklist)
+                    </header>
+                    <div class="panel-body" style="border-width: 1px 1px 1px;padding: 5px;">
+                      <input name="tagsinput" id="tagsinput" class="tagsinput" />
+                    </div>
+                  </section>
+                  <div class="form-group inteira">
+                    <label for="exampleInputPassword1">Quantidade de metros quadrados</label>
+                    <input type="text" class="form-control" name="metroQuadradoServico" value="<?php echo $row['metroQuadradoServico']; ?>"/>
+                  </div>
+                  <div class="form-group inteira">
+                    <label for="exampleInputPassword1">Valor mão de obra</label>
+                    <input type="text" id="valorUnitario" class="form-control" name="valorMaoDeObraServico" value="<?php echo $row['valorMaoDeObraServico']; ?>"/>
                   </div>
                   <div class="buttons">
                     <button type="submit" class="btn btn-primary">Editar serviço</button>
