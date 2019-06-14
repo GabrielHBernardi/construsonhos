@@ -77,7 +77,8 @@
                     <label for="exampleInputPassword1">Status do serviço</label>
                     <select style="margin-bottom: 0px;" class="form-control m-bot15" name="statusServico">
                       <option disabled selected>Selecione o status do serviço</option>
-                      <option value="Aguardando aprovação">Aguardando aprovação</option>
+                      <option value="Aguardando retorno da construtora">Aguardando retorno da construtora</option>
+                      <option value="Aguardando aprovação do cliente">Aguardando aprovação do cliente</option>
                       <option value="Aceito">Aceito</option>
                       <option value="Cancelado/Recusado">Cancelado/Recusado</option>
                       <option value="Em andamento">Em andamento</option>

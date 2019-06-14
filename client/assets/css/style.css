@@ -10,6 +10,134 @@
 
 @import url(line-icons.css);
 
+.input-align-endereco {
+    border: none;
+    outline: none;
+    margin: 0px 5px;
+    color: #8e8e93;
+    width: 10px;
+    background: transparent;
+    pointer-events: none;
+}
+
+.form-control.maodeobra {
+    border: none;
+    border-bottom: 1px solid #c7c7cc;
+    text-align: center;
+}
+.form-control.maodeobra:nth-child(1) {
+    width: 450px;
+    margin-left: 10px;
+}
+.form-control.maodeobra:nth-child(2) {
+    width: 250px;
+    margin-left: 10px;
+}
+
+.form-control.endereco {
+    border: none;
+    border-bottom: 1px solid #c7c7cc;
+    text-align: center;
+}
+.form-control.endereco:nth-child(1) {
+    width: 95px;
+    margin-left: 10px;
+}
+.form-control.endereco:nth-child(2) {
+    width: 45px;
+    margin-left: 10px;
+}
+.form-control.endereco:nth-child(3) {
+    width: 150px;
+    margin-left: 10px;
+}
+.form-control.endereco:nth-child(4) {
+    width: 150px;
+    margin-left: 10px;
+}
+.form-control.endereco:nth-child(5) {
+    width: 200px;
+    margin-left: 10px;
+}
+.form-control.endereco:nth-child(6) {
+    width: 56px;
+    margin-left: 10px;
+}
+
+.msgLoginAdmin {
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 3px solid #01a620;
+    border-bottom: 3px solid #01a620;
+    background: #d1ffd1;
+}
+.msgLoginAdmin span {
+    color: #01a620;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+}
+
+.form-group label {
+    font-weight: 900;
+}
+
+.btn-primary.blue {
+    background-color: #3d3dd2;
+    border-color: #3d3dd2;
+}
+.btn-primary.blue:hover {
+    background-color: #ffffff;
+    color: #3d3dd2;
+}
+
+.btn-primary.yellow {
+    background-color: yellow;
+    border-color: yellow;
+}
+.btn-primary.yellow:hover {
+    background-color: #ffffff;
+    color: yellow;
+}
+
+.btn-group.align {
+    margin-left: 12px;
+    width: 92px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-group.inteira {
+    width: 100%;
+}
+
+.form-group.meia {
+    width: 49%;
+}
+
+#msgs-new-material, #msgs-new-provider {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    height: 22px;
+    overflow: hidden;
+}
+#msgs-new-material label span, #msgs-new-provider label span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .form-group.inteira {
     width: 100%;
 }

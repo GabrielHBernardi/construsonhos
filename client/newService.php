@@ -11,18 +11,6 @@
     <?php include('header.php'); ?>
     <!--header end-->
 
-    <?php
-      include "../config/conectionDB.php";
-      
-      $idCliente = $_SESSION['idCliente'];
-
-      $query = "SELECT * FROM tb_cliente WHERE idCliente = '$idCliente'";
-
-      $exec_query = mysqli_query($conexao, $query);
-
-      $row_query = mysqli_fetch_assoc($exec_query);
-    ?>
-
     <!--sidebar start-->
     <aside>
       <div id="sidebar" class="nav-collapse ">
@@ -39,10 +27,10 @@
         <!--overview start-->
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-laptop"></i>Registrar novo serviço</h3>
+            <h3 class="page-header"><i class="fa fa-laptop"></i>Cadastrar novo serviço / Solicitar orçamento</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="index.php">Início</a></li>
-              <li><i class="fa fa-laptop"></i>Registrar novo serviço</li>
+              <li><i class="fa fa-laptop"></i>Cadastrar novo serviço / Solicitar orçamento</li>
             </ol>
           </div>
         </div>
@@ -50,61 +38,55 @@
         <div class="row">
           <div class="col-lg-6" style="width: 100%;">
             <section class="panel">
-              <header class="panel-heading">
-                Registrar novo serviço
-              </header>
               <div class="panel-body">
                 <form style="display: flex;flex-wrap: wrap;justify-content: space-between;" role="form" id="new-service" action="processNewService.php" method="post">
-                  <input type="hidden" name="idCliente" value="<?php echo $_SESSION['idCliente']; ?>">
+                  <?php
+                    include "../config/conectionDB.php";
+                    
+                    $idCliente = $_SESSION['idCliente'];
+
+                    $query = "SELECT * FROM tb_cliente WHERE idCliente = '$idCliente'";
+
+                    $exec_query = mysqli_query($conexao, $query);
+
+                    $row_query = mysqli_fetch_assoc($exec_query);
+                  ?>
+                  <input type="hidden" name="idCliente" value="<?php echo $row_query['idCliente'] ?>">
                   <div class="form-group inteira">
                     <label for="exampleInputPassword1">Tipo de serviço</label>
-                    <select class="form-control m-bot15">
-                      <option>Construção</option>
-                      <option>Manutenção elétrica</option>
-                      <option>Manutenção hidráulica</option>
-                      <option>Manutenção elétrica e hidráulica</option>
-                      <option>Reforma</option>
+                    <select style="margin-bottom: 0px;" class="form-control m-bot15" name="tipoServico">
+                      <option disabled selected>Selecione o tipo de serviço</option>
+                      <option value="Construção">Construção</option>
+                      <option value="Reforma">Reforma</option>
+                      <option value="Manutenção Elétrica">Manutenção Elétrica</option>
+                      <option value="Manutenção Hidráulica">Manutenção Hidráulica</option>
                     </select>
                   </div>
-                  <section class="panel" style="width: 100%;border-top: 1px solid #ccc;">
+                  <div class="form-group inteira">
+                    <label for="exampleInputPassword1">Endereço</label>
+                    <div style="display: flex;">
+                      <input type="text" class="form-control endereco" name="cepServico" id="cep" placeholder="CEP" onblur="pesquisacep(this.value);">
+                      <input type="text" class="form-control endereco" name="estadoServico" id="estado" maxlength="2" placeholder="UF">
+                      <input type="text" class="form-control endereco" name="cidadeServico" id="cidade" placeholder="Cidade">
+                      <input type="text" class="form-control endereco" name="bairroServico" id="bairro" placeholder="Bairro">
+                      <input type="text" class="form-control endereco" name="ruaServico" id="rua" placeholder="Rua">
+                      <input type="text" class="form-control endereco" name="numeroServico" placeholder="Nº">
+                    </div>
+                  </div>
+                  <section class="panel" style="width: 100%;border-top: 1px solid #ccc;margin-bottom: 10px;">
                     <header class="panel-heading">
-                      Quais são os itens a serem feitos? (Checklist)
+                      Itens serviço (checklist)
                     </header>
-                    <div class="panel-body" style="border-width: 1px 1px 1px;">
-                      <input name="tagsinput" id="tagsinput" class="tagsinput"/>
+                    <div class="panel-body" style="border-width: 1px 1px 1px;padding: 5px;">
+                      <input name="checklistServico" id="tagsinput" class="tagsinput" />
                     </div>
                   </section>
-                  <p class="help-block" style="width: 100%;">Qual é o endereço?</p>
-                  <div class="form-group meia">
-                    <label for="exampleInputPassword1">CEP</label>
-                    <input type="text" class="form-control" name="cep" id="cep" placeholder="Digite seu CEP" onblur="pesquisacep(this.value);">
-                  </div>
-                  <div class="form-group meia">
-                    <label for="exampleInputPassword1">Estado (UF)</label>
-                    <input type="text" class="form-control" name="estado" id="estado" maxlength="2" placeholder="Digite seu estado">
-                  </div>
-                  <div class="form-group meia">
-                    <label for="exampleInputPassword1">Cidade</label>
-                    <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Digite sua cidade">
-                  </div>
-                  <div class="form-group meia">
-                    <label for="exampleInputPassword1">Bairro</label>
-                    <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Digite seu bairro">
-                  </div>
-                  <div class="form-group meia">
-                    <label for="exampleInputPassword1">Rua</label>
-                    <input type="text" class="form-control" name="rua" id="rua" placeholder="Digite sua rua">
-                  </div>
-                  <div class="form-group meia">
-                    <label for="exampleInputPassword1">Número</label>
-                    <input type="text" class="form-control" name="numero" placeholder="Digite seu número">
-                  </div>
-                  <button type="submit" class="btn btn-primary">Registrar novo serviço</button>
-                  <div id="msgs-my-account">
+                  <button type="submit" class="btn btn-primary">Solicitar orçamento</button>
+                  <div id="msgs-new-provider">
                     <?php
-                      if (isset($_SESSION['msgNewService'])) {
-                          echo $_SESSION['msgNewService'];
-                          unset($_SESSION['msgNewService']);
+                      if (isset($_SESSION['msgNewProvider'])) {
+                          echo $_SESSION['msgNewProvider'];
+                          unset($_SESSION['msgNewProvider']);
                       }
                     ?>
                   </div>

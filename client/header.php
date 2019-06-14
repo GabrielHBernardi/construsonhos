@@ -7,6 +7,8 @@
     header('Location: /construsonhos?modalName=myModalLogin');
     $_SESSION['msgLoginFail'] = '<label class="msgLogin"><span style="color: #c22d43;">Acesso negado. Você precisa estar logado!</span></label>';
   }
+  
+  include "../config/conectionDB.php";
 ?>
 <header class="header dark-bg">
   <div class="toggle-nav">

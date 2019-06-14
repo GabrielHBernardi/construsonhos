@@ -88,7 +88,8 @@
                     <label for="exampleInputPassword1">Status do serviço</label>
                     <select style="margin-bottom: 0px;" class="form-control m-bot15" name="statusServico">
                       <option disabled>Selecione o status do serviço</option>
-                      <option value="Aguardando aprovação" <?php if ($row['statusServico'] == 'Aguardando aprovação') { echo "Selected"; } ?> >Aguardando aprovação</option>
+                      <option value="Aguardando retorno da construtora" <?php if ($row['statusServico'] == 'Aguardando retorno da construtora') { echo "Selected"; } ?> >Aguardando retorno da construtora</option>
+                      <option value="Aguardando aprovação do cliente" <?php if ($row['statusServico'] == 'Aguardando aprovação do cliente') { echo "Selected"; } ?> >Aguardando aprovação do cliente</option>
                       <option value="Aceito" <?php if ($row['statusServico'] == 'Aceito') { echo "Selected"; } ?> >Aceito</option>
                       <option value="Cancelado/Recusado" <?php if ($row['statusServico'] == 'Cancelado/Recusado') { echo "Selected"; } ?> >Cancelado/Recusado</option>
                       <option value="Em andamento" <?php if ($row['statusServico'] == 'Em andamento') { echo "Selected"; } ?> >Em andamento</option>
