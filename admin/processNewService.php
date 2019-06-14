@@ -13,11 +13,10 @@
 	$bairroServico = filter_input(INPUT_POST, 'bairroServico', FILTER_SANITIZE_STRING);
 	$ruaServico = filter_input(INPUT_POST, 'ruaServico', FILTER_SANITIZE_STRING);
 	$numeroServico = filter_input(INPUT_POST, 'numeroServico', FILTER_SANITIZE_NUMBER_INT);
-	$metroQuadradoServico = filter_input(INPUT_POST, 'metroQuadradoServico', FILTER_SANITIZE_STRING);
 	$valorMaoDeObraServico = filter_input(INPUT_POST, 'valorMaoDeObraServico', FILTER_SANITIZE_STRING);
 	$valorMaoDeObraServico = str_replace(['.',','], ['', '.'], $valorMaoDeObraServico);
 
-	$insere_dados = "INSERT INTO tb_servico (idCliente, tipoServico, dataServico, statusServico, cepServico, estadoServico, cidadeServico, bairroServico, ruaServico, numeroServico, metroQuadradoServico, valorMaoDeObraServico) VALUES ('$idCliente', '$tipoServico', '$dataServico', '$statusServico', '$cepServico', '$estadoServico', '$cidadeServico', '$bairroServico', '$ruaServico', '$numeroServico', '$metroQuadradoServico', '$valorMaoDeObraServico')";
+	$insere_dados = "INSERT INTO tb_servico (idCliente, tipoServico, dataServico, statusServico, cepServico, estadoServico, cidadeServico, bairroServico, ruaServico, numeroServico, valorMaoDeObraServico) VALUES ('$idCliente', '$tipoServico', '$dataServico', '$statusServico', '$cepServico', '$estadoServico', '$cidadeServico', '$bairroServico', '$ruaServico', '$numeroServico', '$valorMaoDeObraServico')";
 
 	$resultado_insercao = mysqli_query($conexao, $insere_dados);
 

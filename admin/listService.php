@@ -67,7 +67,6 @@
                     <th><i class="fas fa-map-marked-alt"></i> Endereço</th>
                     <th><i class="fas fa-calendar-alt"></i> Data</th>
                     <th><i class="fas fa-business-time"></i> Status</th>
-                    <th><i class="fas fa-ruler-combined"></i> Metros quadrados</th>
                     <th><i class="fas fa-dollar-sign"></i> Valor mão de obra</th>
                     <th><i class="fas fa-clipboard-list"></i> Carta de cobrança</th>
                     <th><i class="icon_cogs"></i> Editar/Excluir</th>
@@ -98,7 +97,6 @@
                     <td style="max-width: 250px;"><?php echo $row['ruaServico']; ?> - <?php echo $row['numeroServico']; ?> - <?php echo $row['bairroServico']; ?> - <?php echo $row['cidadeServico']; ?> / <?php echo $row['estadoServico']; ?> | <?php echo $row['cepServico']; ?></td>
                     <td><?php echo $row['dataServico']; ?></td>
                     <td><?php echo $row['statusServico']; ?></td>
-                    <td><?php echo $row['metroQuadradoServico']; ?></td>
                     <td><?php echo 'R$ ' . number_format($row['valorMaoDeObraServico'], 2, ',', '.'); ?></td>
                     <td>
                       <div class="btn-group align">

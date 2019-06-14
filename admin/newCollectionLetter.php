@@ -23,7 +23,6 @@
 	$bairroServico = $row_servico['bairroServico'];
 	$ruaServico = $row_servico['ruaServico'];
 	$numeroServico = $row_servico['numeroServico'];
-	$metroQuadradoServico = $row_servico['metroQuadradoServico'];
 	$valorMaoDeObraServico = number_format($row_servico['valorMaoDeObraServico'], 2, ',', '.');
 
 	// SELECT NOME DO CLIENTE
@@ -37,18 +36,33 @@
 	$dompdf->load_html('
 		<html>
 			<body>
-				<h1>Prestação de serviços - Construtora construsonhos</h1>
+				<div style="height: 30px;background: #1a2732;background-color: #1a2732;text-align: center;padding: 15px 0px 15px 0px;">
+					<span style="font-size: 22px;font-weight: 300;color: #fed189;text-transform: uppercase;">CONSTRUTORA</span>
+					<span style="font-size: 22px;font-weight: 300;color: #00a0df;text-transform: uppercase;margin-left: 10px;">CONSTRUSONHOS</span>
+				</div>
 				<br/>
-				<p>Olá, <b>'.$nomeCliente.'</b>,</p>
-				<p>Aqui seguem informações referente ao serviço de <b>'.$tipoServico.'</b> realizado no período de <b>'.$dataServico.'</b>, no endereço: <b>'.$ruaServico.', '.$numeroServico.' - '.$bairroServico.' - '.$cidadeServico.' / '.$estadoServico.' - CEP: '.$cepServico.'</b></p>
-				<p><b><i>Itens/Serviços realizados</i></b></p>
+				<p style="font-size: 18px;">Olá, <b>'.$nomeCliente.'</b>,</p>
+				<p style="font-size: 18px;">Aqui seguem informações referente ao serviço de <b>'.$tipoServico.'</b> realizado no período de <b>'.$dataServico.'</b>, no endereço: <b>'.$ruaServico.', '.$numeroServico.' - '.$bairroServico.' - '.$cidadeServico.' / '.$estadoServico.' - CEP: '.$cepServico.'</b></p>
+				<p style="font-size: 18px;"><b>Itens/Serviços realizados:</b></p>
 				<ul>
-					<li>Fazer uma garagem de 320x150 quadrados no fundo do quintal</li>
-					<li>Cercar a parte frontal do pátio</li>
+					<li style="font-size: 18px;">Fazer uma garagem de 320x150 quadrados no fundo do quintal</li>
+					<li style="font-size: 18px;">Cercar a parte frontal do pátio</li>
 				</ul>
-				<p>Quantidade total de metros quadrados: <b>'.$metroQuadradoServico.'</b></p>
-				<p>Valor da mão de obra: <b>'.$valorMaoDeObraServico.'</b></p>
-				<p>Valor total do serviço: <b>'.$valorMaoDeObraServico.'</b></p>
+				<p style="font-size: 18px;">Valor da mão de obra: <b>'.$valorMaoDeObraServico.'</b></p>
+				<p style="font-size: 18px;">Valor total do serviço: <b>'.$valorMaoDeObraServico.'</b></p>
+				<p style="font-size: 18px;">O pagamento deve ser feito via transferência ou depósito bancário para a conta com os dados detalhados abaixo:</p>
+				<div style="border: 1px solid gray;width: fit-content;padding: 0px 15px 0px 15px;width: 210px;">
+					<p style="font-size: 18px;">Banco: <b>475 - Banco de teste</b></p>
+					<p style="font-size: 18px;">Agência: <b>0001</b></p>
+					<p style="font-size: 18px;">Conta: <b>12345-6</b></p>
+					<p style="font-size: 18px;">CPF: <b>032.316.220-77</b></p>
+					<p style="font-size: 18px;">Valor: <b>'.$valorMaoDeObraServico.'</b></p>
+				</div>
+				<p style="font-size: 18px;">Após realizar o pagamento, anexe o comprovante <a href="/construsonhos/client/">aqui</a>.</p>
+				<p style="font-size: 18px;">Caso tenha problemas para realizar o pagamento, entre em contato antes do vencimento acima.</p>
+				<br/>
+				<p style="font-size: 18px;"><b><i>Atenciosamente,</b></i></p>
+				<p style="font-size: 18px;"><b><i>Construtora Construsonhos</b></i></p>
 			</body>
 		</html>
 	');

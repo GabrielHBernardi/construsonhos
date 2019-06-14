@@ -115,10 +115,6 @@
                     </div>
                   </section>
                   <div class="form-group inteira">
-                    <label for="exampleInputPassword1">Quantidade de metros quadrados</label>
-                    <input type="text" class="form-control" name="metroQuadradoServico" value="<?php echo $row['metroQuadradoServico']; ?>"/>
-                  </div>
-                  <div class="form-group inteira">
                     <label for="exampleInputPassword1">Valor mão de obra</label>
                     <input type="text" id="valorUnitario" class="form-control" name="valorMaoDeObraServico" value="<?php echo $row['valorMaoDeObraServico']; ?>"/>
                   </div>
