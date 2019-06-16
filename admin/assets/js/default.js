@@ -3,6 +3,8 @@ $(document).ready(function(){
     new_material();
     new_client();
     new_service();
+    load_service_checklist_items();
+    material_services();
 
     jQuery.validator.addMethod('validacpf', function (value, element) {
         value = jQuery.trim(value);
@@ -303,4 +305,61 @@ function new_client(){
             $('#msgs-new-provider').html('');
         }, 5000);
     }
+}
+
+var getParams = function () {
+    var params = {};
+    var parser = document.createElement('a');
+    parser.href = window.location.href;
+    var query = parser.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        params[pair[0]] = decodeURIComponent(pair[1]);
+    }
+    return params;
+};
+
+function load_service_checklist_items() {
+    var path = window.location.pathname;
+    path = path.split("/");
+    path = path[3];
+    var pages = ["editService.php"];
+
+    if($.inArray(path, pages) != -1) {
+        var params = getParams();
+
+        $.ajax({
+            url: "/construsonhos/admin/loadServicesItems.php",
+            type: "POST",
+            dataType: "json",
+            data: ({
+                service_id: params["idServico"]
+            }),
+            success: function(data) {
+                $.each(data, function(i, item) {
+                    $("#tagsinput").addTag(item.descr);
+                });
+            }
+        })
+    }
+}
+
+function material_services() {
+    $("#btn_add_material").on("click", function(e) {
+        e.preventDefault();
+
+        var select_options = $(".list-materiais div:first-child").find("select");
+
+        var html = "<div class='add-new-material'>";
+            html += "<select class='form-control m-bot15 valid' name='material_id[]'>";
+                // html += "<option value='0' selected disabled>Selecione o material...</option>";
+                $.each($(select_options).find("option"), function(i, option) {
+                    html += "<option value='" + $(option).val() + "'>" + $(option).text() + "</option>";
+                });
+            html += "<input class='form-control valid' name='material_quantidade[]' type='text' placeholder='Quantidade' />";
+        html += "</div>";
+
+        $(".list-materiais").append(html);
+    });
 }

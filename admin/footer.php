@@ -40,24 +40,23 @@
   <script src="assets/js/sparklines.js"></script>
   <script src="assets/js/charts.js"></script>
   <script src="assets/js/jquery.slimscroll.min.js"></script>
-  <script src="assets/js/default.js"></script>
+  <script src="assets/js/jquery.tagsinput.js"></script>
   <script src="assets/js/jquery.mask.js"></script>
   <!-- <script src="assets/js/additional-methods.js"></script> -->
   <script src="assets/js/jquery.validate.js"></script>
-  <script src="assets/js/form-component.js"></script>
   <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
   <script src="assets/js/bootstrap-datepicker.js"></script>
-  <script src="assets/js/daterangepicker.js"></script>
   <script src="assets/js/bootstrap-colorpicker.js"></script>
   <script src="assets/js/moment.js"></script>
   <script src="assets/js/bootstrap-wysiwyg-custom.js"></script>
   <script src="assets/js/bootstrap-wysiwyg.js"></script>
   <script src="assets/js/jquery.hotkeys.js"></script>
-  <script src="assets/js/jquery.tagsinput.js"></script>
   <script src="assets/js/bootstrap-switch.js"></script>
   <script type="text/javascript" src="assets/js/ga.js"></script>
   <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script src="assets/js/form-component.js"></script>
+  <script src="assets/js/default.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />

@@ -21,6 +21,24 @@
 	$resultado_insercao = mysqli_query($conexao, $insere_dados);
 
 	if ($resultado_insercao) {
+		$service_id = mysqli_insert_id($conexao);
+
+		$checklist = filter_input(INPUT_POST, 'tagsinput', FILTER_SANITIZE_STRING);
+		$checklist = explode(",", $checklist);
+
+		foreach($checklist as $key => $check) {
+			$insert_check = "INSERT INTO tb_checklist_servico (idServico, descricaoChecklistServico) VALUES ('$service_id', '$check')";
+			mysqli_query($conexao, $insert_check);
+		}
+
+		// Materiais serviço
+		$materiais = $_POST["material_id"];
+
+		foreach($materiais as $key => $mat) {
+			$insert_check = "INSERT INTO tb_materiais_servico (idMaterial, idServico, quantidadeTotalMateriais) VALUES ($mat, $service_id, " . $_POST["material_quantidade"][$key] . ")";
+			$result = mysqli_query($conexao, $insert_check);
+		}
+
 		header('Location: listService.php');
 		$_SESSION['msgNewProvider'] = '<label class="msgLogin"><span style="color: #01a620;">Cadastro efetuado com sucesso</span></label>';
 	} else {

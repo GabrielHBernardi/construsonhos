@@ -10,6 +10,33 @@
 
 @import url(line-icons.css);
 
+#btn_add_material {
+    border-radius: 4px;
+    background-color: #688a7e;
+    color: #ffffff;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    line-height: 15px;
+    padding: 6px 13px 8px 19px;
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+    border: none;
+}
+
+.add-new-material {
+    display: flex;
+}
+.add-new-material > select {
+    width: fit-content;
+}
+.add-new-material > input {
+    width: 100px;
+    margin-left: 15px;
+}
+
 .input-align-endereco {
     border: none;
     outline: none;

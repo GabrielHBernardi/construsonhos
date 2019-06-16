@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include('head.php'); ?>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css"/><?php include('head.php'); ?>
 
 <body>
   <!-- container section start -->
@@ -102,6 +102,37 @@
                     </header>
                     <div class="panel-body" style="border-width: 1px 1px 1px;padding: 5px;">
                       <input name="tagsinput" id="tagsinput" class="tagsinput" />
+                    </div>
+                  </section>
+
+
+                  <section class="panel" style="width: 100%;border-top: 1px solid #ccc;margin-bottom: 10px;">
+                    <header class="panel-heading">
+                      Materiais
+                    </header>
+                    <div class="panel-body" style="border-width: 1px 1px 1px;padding: 5px;">
+                      <div class="list-materiais">
+                      <div class="add-new-material">
+                        <select class="form-control m-bot15 valid" name="material_id[]">
+                          <option value="0" selected disabled>Selecione o material...</option>
+                          <?php
+                            include "../config/conectionDB.php";
+
+                            $query = "SELECT * FROM tb_material";
+
+                            $exec_query2 = mysqli_query($conexao, $query);
+
+                            while($row_query = mysqli_fetch_assoc($exec_query2)){
+                          ?>
+                            <option value="<?php echo $row_query['idMaterial']; ?>"><?php echo $row_query['nomeMaterial']; ?></option>
+                          <?php
+                            }
+                        ?>
+                        </select>
+                        <input class="form-control valid" name="material_quantidade[]" type="text" placeholder="Quantidade" />
+                      </div>
+                    </div>
+                    <button id="btn_add_material">Adicionar novo material</button>
                     </div>
                   </section>
                   <div class="form-group inteira">

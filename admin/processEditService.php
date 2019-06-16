@@ -17,11 +17,34 @@
 	$valorMaoDeObraServico = filter_input(INPUT_POST, 'valorMaoDeObraServico', FILTER_SANITIZE_STRING);
 	$valorMaoDeObraServico = str_replace(['.',','], ['', '.'], $valorMaoDeObraServico);
 
-	$insere_dados = "UPDATE tb_servico SET idCliente='$idCliente', tipoServico='$tipoServico', dataServico='$dataServico', statusServico='$statusServico', cepServico='$cepServico', estadoServico='$estadoServico', cidadeServico='$cidadeServico', bairroServico='$bairroServico', ruaServico='$ruaServico', numeroServico='$numeroServico', valorMaoDeObraServico='$valorMaoDeObraServico',  WHERE idServico='$idServico'";
+	$insere_dados = "UPDATE tb_servico SET idCliente='$idCliente', tipoServico='$tipoServico', dataServico='$dataServico', statusServico='$statusServico', cepServico='$cepServico', estadoServico='$estadoServico', cidadeServico='$cidadeServico', bairroServico='$bairroServico', ruaServico='$ruaServico', numeroServico='$numeroServico', valorMaoDeObraServico='$valorMaoDeObraServico' WHERE idServico='$idServico'";
 
 	$resultado_insercao = mysqli_query($conexao, $insere_dados);
 
 	if ($resultado_insercao) {
+		// Checklist serviço
+		$checklist = filter_input(INPUT_POST, 'tagsinput', FILTER_SANITIZE_STRING);
+		$checklist = explode(",", $checklist);
+
+		$delete_item = "DELETE FROM tb_checklist_servico WHERE idServico = $idServico";
+		mysqli_query($conexao, $delete_item);
+
+		foreach($checklist as $key => $check) {
+			$insert_check = "INSERT INTO tb_checklist_servico (idServico, descricaoChecklistServico) VALUES ($idServico, '$check')";
+			$result = mysqli_query($conexao, $insert_check);
+		}
+
+		// Materiais serviço
+		$materiais = $_POST["material_id"];
+
+		$delete_materiais = "DELETE FROM tb_materiais_servico WHERE idServico = $idServico";
+		mysqli_query($conexao, $delete_materiais);
+
+		foreach($materiais as $key => $mat) {
+			$insert_check = "INSERT INTO tb_materiais_servico (idMaterial, idServico, quantidadeTotalMateriais) VALUES ($mat, $idServico, " . $_POST["material_quantidade"][$key] . ")";
+			$result = mysqli_query($conexao, $insert_check);
+		}
+
 		header('Location: listService.php');
 		$_SESSION['msgEditProvider'] = '<label class="msgLogin"><span style="color: #01a620;">Serviço editado com sucesso</span></label>';
 	} else {

@@ -80,7 +80,10 @@
                   </div>
                   <div style="width: 100%;" class="form-group meia">
                     <label for="exampleInputPassword1">Valor unitário</label>
-                    <input type="text" class="form-control" name="valorUnitarioMaterial" id="valorUnitario" placeholder="Digite o valor unitário" value="<?php echo $row['valorUnitarioMaterial']; ?>">
+                    <?php
+                      $valorMaterial = str_replace('.','', $row['valorUnitarioMaterial']);
+                    ?>
+                    <input type="text" class="form-control" name="valorUnitarioMaterial" id="valorUnitario" placeholder="Digite o valor unitário" value="<?php echo $valorMaterial; ?>">
                   </div>
                   <div class="buttons">
                     <button type="submit" class="btn btn-primary">Editar material</button>
