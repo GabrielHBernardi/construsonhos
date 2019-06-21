@@ -107,16 +107,16 @@
 
                       $services_items = [];
 
-                      $query = "SELECT * FROM tb_checklist_servico WHERE idServico = $idServico";
+                      $query = "SELECT * FROM tb_item_servico WHERE idServico = $idServico";
 
                       $exec_query = mysqli_query($conexao, $query);
 
                       while($row = mysqli_fetch_assoc($exec_query)) {
-                        $services_items[] = $row["descricaoChecklistServico"];
+                        $services_items[] = $row["descricaoItemServico"];
                       }
                     ?>
                     <header class="panel-heading">
-                      Itens serviço (checklist)
+                      Itens serviço
                     </header>
                     <div class="panel-body" style="border-width: 1px 1px 1px;padding: 5px;">
                       <input name="tagsinput" id="tagsinput" class="tagsinput" />

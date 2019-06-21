@@ -65,11 +65,12 @@
                     <!-- <th><i class="fas fa-users"></i> Cliente</th> -->
                     <th><i class="fas fa-wrench"></i> Tipo</th>
                     <th><i class="fas fa-map-marked-alt"></i> Endereço</th>
-                    <th><i class="fas fa-calendar-alt"></i> Data</th>
+                    <!-- <th><i class="fas fa-calendar-alt"></i> Data</th> -->
                     <th><i class="fas fa-business-time"></i> Status</th>
                     <!-- <th><i class="fas fa-dollar-sign"></i> Valor mão de obra</th> -->
                     <th><i class="fas fa-clipboard-list"></i> Carta de cobrança</th>
-                    <th><i class="icon_cogs"></i> Editar</th>
+                    <th><i class="fas fa-file-invoice-dollar"></i> Comprovante de pagamento</th>
+                    <th><i class="icon_cogs"></i> Visualizar/Cancelar</th>
                   </tr>
                   <?php
                     $idCliente = $_SESSION['idCliente'];
@@ -96,7 +97,7 @@
                     </td> -->
                     <td><?php echo $row['tipoServico']; ?></td>
                     <td style="max-width: 250px;"><?php echo $row['ruaServico']; ?> - <?php echo $row['numeroServico']; ?> - <?php echo $row['bairroServico']; ?> - <?php echo $row['cidadeServico']; ?> / <?php echo $row['estadoServico']; ?> | <?php echo $row['cepServico']; ?></td>
-                    <td><?php echo $row['dataServico']; ?></td>
+                    <!-- <td><?php echo $row['dataServico']; ?></td> -->
                     <td><?php echo $row['statusServico']; ?></td>
                     <!-- <td><?php echo 'R$ ' . number_format($row['valorMaoDeObraServico'], 2, ',', '.'); ?></td> -->
                     <td>
@@ -113,8 +114,21 @@
                       ?>
                     </td>
                     <td>
-                      <div class="btn-group align">
-                        <a href="editService.php?idServico=<?php echo $row['idServico']; ?>" class="btn btn-primary yellow" href="#"><i class="fas fa-pencil-alt"></i></a>
+                      <div class="btn-group align" style="margin-left: 30px;">
+                        <a href="editService.php?idServico=<?php echo $row['idServico']; ?>" class="btn btn-primary green" href="#"><i class="fas fa-paperclip"></i></a>
+                        <a class="btn btn-primary blue" href="newCollectionLetter.php?idServico=<?php echo $row['idServico']; ?>"><i class="fas fa-eye"></i></a>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="btn-group align" style="margin-left: 30px;">
+                        <a href="viewService.php?idServico=<?php echo $row['idServico']; ?>" class="btn btn-primary blue" href="#"><i class="fas fa-eye"></i></a>
+                        <?php
+                          if ($row['statusServico'] != 'Concluído' && $row['statusServico'] != 'Aceito' && $row['statusServico'] != 'Em andamento' && $row['statusServico'] != 'Cancelado/Recusado') {
+                        ?>
+                        <a href="processCancelService.php?idServico=<?php echo $row['idServico']; ?>" data-confirm-cancel-service="Tem certeza que deseja cancelar o serviço selecionado?" class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
+                        <?php
+                          }
+                        ?>
                       </div>
                     </td>
                   </tr>

@@ -27,7 +27,7 @@
 		$checklist = explode(",", $checklist);
 
 		foreach($checklist as $key => $check) {
-			$insert_check = "INSERT INTO tb_checklist_servico (idServico, descricaoChecklistServico) VALUES ('$service_id', '$check')";
+			$insert_check = "INSERT INTO tb_item_servico (idServico, descricaoItemServico) VALUES ('$service_id', '$check')";
 			mysqli_query($conexao, $insert_check);
 		}
 

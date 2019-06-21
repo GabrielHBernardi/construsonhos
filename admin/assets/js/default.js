@@ -3,7 +3,7 @@ $(document).ready(function(){
     new_material();
     new_client();
     new_service();
-    load_service_checklist_items();
+    load_service_items();
     material_services();
 
     jQuery.validator.addMethod('validacpf', function (value, element) {
@@ -320,7 +320,7 @@ var getParams = function () {
     return params;
 };
 
-function load_service_checklist_items() {
+function load_service_items() {
     var path = window.location.pathname;
     path = path.split("/");
     path = path[3];

@@ -26,11 +26,11 @@
 		$checklist = filter_input(INPUT_POST, 'tagsinput', FILTER_SANITIZE_STRING);
 		$checklist = explode(",", $checklist);
 
-		$delete_item = "DELETE FROM tb_checklist_servico WHERE idServico = $idServico";
+		$delete_item = "DELETE FROM tb_item_servico WHERE idServico = $idServico";
 		mysqli_query($conexao, $delete_item);
 
 		foreach($checklist as $key => $check) {
-			$insert_check = "INSERT INTO tb_checklist_servico (idServico, descricaoChecklistServico) VALUES ($idServico, '$check')";
+			$insert_check = "INSERT INTO tb_item_servico (idServico, descricaoItemServico) VALUES ($idServico, '$check')";
 			$result = mysqli_query($conexao, $insert_check);
 		}
 

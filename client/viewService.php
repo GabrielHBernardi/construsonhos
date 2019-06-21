@@ -88,25 +88,25 @@
                       <input disabled type="text" class="form-control endereco" name="numeroServico" placeholder="Nº" value="<?php echo $row['numeroServico']; ?>">
                     </div>
                   </div>
-                  <section class="panel" style="width: 100%;border-top: 1px solid #ccc;margin-bottom: 10px;">
+                  <section class="panel" style="width: 100%;border-top: 1px solid #ccc;margin-bottom: 10px;pointer-events: none;">
                     <?php
                       include "../config/conectionDB.php";
 
                       $services_items = [];
 
-                      $query = "SELECT * FROM tb_checklist_servico WHERE idServico = $idServico";
+                      $query = "SELECT * FROM tb_item_servico WHERE idServico = $idServico";
 
                       $exec_query = mysqli_query($conexao, $query);
 
                       while($row = mysqli_fetch_assoc($exec_query)) {
-                        $services_items[] = $row["descricaoChecklistServico"];
+                        $services_items[] = $row["descricaoItemServico"];
                       }
                     ?>
                     <header class="panel-heading">
-                      Itens serviço (checklist)
+                      Itens serviço
                     </header>
                     <div class="panel-body" style="border-width: 1px 1px 1px;padding: 5px;">
-                      <input name="tagsinput" id="tagsinput" class="tagsinput" />
+                      <input name="tagsinput" id="tagsinput" class="tagsinput" disabled />
                     </div>
                   </section>
                   <div class="form-group inteira">
@@ -149,13 +149,13 @@
                           <?php
                             foreach ($materiais as $key => $material) { ?>
                                 <tr>
-                                    <td><?= $material["nome_material"]; ?></td>
-                                    <td><?= $material["qtd"]; ?></td>
-                                    <td><?= $material["nomeFornecedor"]; ?></td>
-                                    <td><?= $material["preco"]; ?></td>
-                                    <td><?= $material["total"]; ?></td>
+                                    <td><?php echo $material["nome_material"]; ?></td>
+                                    <td><?php echo $material["qtd"]; ?></td>
+                                    <td><?php echo $material["nomeFornecedor"]; ?></td>
+                                    <td><?php echo $material["preco"]; ?></td>
+                                    <td><?php echo $material["total"]; ?></td>
                                 </tr>
-                            <? }
+                            <?php }
                           ?>
                       </tbody>
                     </table>
@@ -165,7 +165,7 @@
                     <input type="text" id="valorUnitario" class="form-control" name="valorMaoDeObraServico" disabled value="<?php echo $row['valorMaoDeObraServico'] + $total_materiais; ?>"/>
                   </div>
                   <div class="buttons">
-                    <button type="submit" class="btn btn-primary">Editar serviço</button>
+                    <a class="btn btn-primary" href="/construsonhos/client/listService.php">Voltar</a>
                   </div>
                   <div id="msgs-new-provider">
                     <?php

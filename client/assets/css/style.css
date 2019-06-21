@@ -101,6 +101,15 @@
     color: #3d3dd2;
 }
 
+.btn-primary.green {
+    background-color: #25ca25;
+    border-color: #25ca25;
+}
+.btn-primary.green:hover {
+    background-color: #ffffff;
+    color: #25ca25;
+}
+
 .btn-primary.yellow {
     background-color: yellow;
     border-color: yellow;

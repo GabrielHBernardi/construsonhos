@@ -5,6 +5,7 @@ $(document).ready(function(){
     validate_form_password_user();
     validate_form_login_admin();
     contact_form();
+    first_password_form();
 
     $('#telefone').mask('(99) 999999999');
     $('#cpf').mask('999.999.999-99');
@@ -12,6 +13,16 @@ $(document).ready(function(){
     jQuery.validator.addMethod('confirm_password', function () {
         var password = $("#senha").val();
         var confirmPassword = $("#confirmar_senha").val();
+        if (password != confirmPassword) {
+           // $('#msgs-register').html('<span style="color: #c22d43;">As senhas não são iguais</span>');
+            return false;
+        }
+        return true;
+    });
+
+    jQuery.validator.addMethod('confirm_first_password', function () {
+        var password = $("#primeira_senha").val();
+        var confirmPassword = $("#confirmar_primeira_senha").val();
         if (password != confirmPassword) {
            // $('#msgs-register').html('<span style="color: #c22d43;">As senhas não são iguais</span>');
             return false;
@@ -271,6 +282,52 @@ function validate_form_password_user(){
         }
         setTimeout(function () {
             $('#msgs-forgot-password').html('');
+        }, 5000);
+    }
+}
+
+function first_password_form(){
+    $('#first-password-form').validate({
+        rules: {
+            'email_fp': { required: true, email: true},
+            'cpf_fp': { required: true, validacpf: true},
+            'senha_fp': { required: true},
+            'confirmar_senha_fp': { required: true, confirm_first_password: true},
+        },
+        messages: {
+            'email_fp': { required: '<span style="color: #c22d43;"> Digite seu e-mail</span>', email: '<span style="color: #c22d43;"> E-mail inválido</span>' },
+            'cpf_fp': { required: '<span style="color: #c22d43;"> Digite seu CPF</span>', validacpf: '<span style="color: #c22d43;"> CPF inválido</span>' },
+            'senha_fp': { required: '<span style="color: #c22d43;"> Digite uma senha</span>' },
+            'confirmar_senha_fp': { required: '<span style="color: #c22d43;">Digite sua senha novamente</span>', confirm_first_password: '<span style="color: #c22d43;">As senhas não são iguais</span>' },
+        },
+        submitHandler: function (form) {
+            var options = {
+                beforeSubmit: showRequest,
+                success: showResponse,
+                resetForm: true
+            };
+            $(form).ajaxSubmit(options);
+            return false;
+        },
+        errorLabelContainer: $('#msgs-first-password')
+    });
+    function showRequest(formData, jqForm, options) {
+        $('#msgs-first-password').html('<span style="color: #01a620;">Enviado...</span>');
+        $('#msgs-first-password').show();
+    }
+    function showResponse(data, jqForm) {
+        switch ($.trim(data)) {
+            case 'true':
+                $('#msgs-first-password').html('<span style="color: #01a620;">Enviado com sucesso! Verifique seu e-mail!</span>');
+                $('#msgs-first-password').show();
+                break;
+            case 'false':
+                $('#msgs-first-password').html('<span style="color: #c22d43;">Ocorreu um erro inesperado</span>');
+                $('#msgs-first-password').show();
+                break;
+        }
+        setTimeout(function () {
+            $('#msgs-first-password').html('');
         }, 5000);
     }
 }

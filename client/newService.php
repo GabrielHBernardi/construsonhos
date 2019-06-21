@@ -75,7 +75,7 @@
                   </div>
                   <section class="panel" style="width: 100%;border-top: 1px solid #ccc;margin-bottom: 10px;">
                     <header class="panel-heading">
-                      Itens serviço (checklist)
+                      Itens serviço
                     </header>
                     <div class="panel-body" style="border-width: 1px 1px 1px;padding: 5px;">
                       <input name="checklistServico" id="tagsinput" class="tagsinput" />

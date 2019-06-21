@@ -84,6 +84,20 @@
 					}, 5000);
 				});
 			</script>";
+	    } else if ($_GET["modalName"] == "myModalFirstPassword") {
+	    	echo "<script>
+				$().ready(function() {
+					$(window).load(function(){
+				 		$('#myModalFirstPassword').modal('show');
+					});
+					setTimeout(function () {
+						$('.msgLogin').hide();
+					}, 5000);
+					setTimeout(function () {
+						$('.msgLoginFail').hide();
+					}, 5000);
+				});
+			</script>";
 	    }
 	}
 ?>
@@ -525,6 +539,54 @@
 </body>
 
 </html>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModalFirstPassword" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+        <h4 class="modal-title">Sua conta já esta cadastrada. Informe seu dados abaixo para cadastrar uma senha para sua conta.</h4>
+      </div>
+      <div class="modal-body">
+
+        <form class="login-form" id="first-password-form" method="post" action="processFirstPassword.php">
+	      <div class="login-wrap">
+	        <p class="login-img"><i class="icon_lock_alt"></i></p>
+	        <div class="form-group">
+                <label for="exampleInputEmail1">E-mail</label>
+                <input type="text" class="form-control" name="email_fp" id="exampleInputEmail3" placeholder="Digite seu e-mail" autofocus>
+          	</div>
+          	<div class="form-group">
+                <label for="exampleInputEmail1">CPF</label>
+                <input type="text" class="form-control" id="cpf" name="cpf_fp" id="exampleInputEmail3" placeholder="Digite seu CPF" autofocus>
+          	</div>
+          	<div class="form-group">
+                <label for="exampleInputPassword1">Senha</label>
+                <input type="password" class="form-control" id="primeira_senha" name="senha_fp" placeholder="Digite sua senha">
+          	</div>
+          	<div class="form-group">
+                <label for="exampleInputEmail1">Confirmar senha</label>
+                <input type="password" class="form-control" name="confirmar_senha_fp" id="confirmar_primeira_senha" placeholder="Confirme sua senha" autofocus>
+          	</div>
+	        <input class="btn btn-primary btn-lg btn-block" name="buttonFirstPassword" value="Cadastrar" type="submit">
+	        <div id="msgs-first-password" class="msgs" style="height: 25px; text-align: center;">
+	        	<?php
+	            if (isset($_SESSION['msgFirstPassword'])) {
+	                echo $_SESSION['msgFirstPassword'];
+	                unset($_SESSION['msgFirstPassword']);
+	            }
+	            if (isset($_SESSION['msgFirstPasswordFail'])) {
+	                echo $_SESSION['msgFirstPasswordFail'];
+	                unset($_SESSION['msgFirstPasswordFail']);
+	            }
+		        ?>
+	        </div>
+	      </div>
+	    </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModalLoginAdmin" class="modal fade">
   <div class="modal-dialog">

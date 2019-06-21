@@ -15,7 +15,10 @@
 
 			if ($exec_query){
 				$row_query = mysqli_fetch_assoc($exec_query);
-				if (password_verify($senha, $row_query['senhaCliente'])){
+				if ($row_query['emailCliente'] == $email && $row_query['senhaCliente'] == '') {
+					header('Location: /construsonhos?modalName=myModalFirstPassword');
+					$_SESSION['msgFirstPassword'] = '<label class="msgLogin"><span style="color: #c22d43;">Cadastre uma senha para acessar sua conta</span></label>';
+				} else if (password_verify($senha, $row_query['senhaCliente'])) {
 					$_SESSION['idCliente'] = $row_query['idCliente'];
 					$_SESSION['nomeCliente'] = $row_query['nomeCliente'];
 					header('Location: /construsonhos/client/');
