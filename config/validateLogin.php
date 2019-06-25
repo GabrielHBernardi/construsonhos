@@ -22,7 +22,7 @@
 					$_SESSION['idCliente'] = $row_query['idCliente'];
 					$_SESSION['nomeCliente'] = $row_query['nomeCliente'];
 					header('Location: /construsonhos/client/');
-					$_SESSION['msgLogin'] = '<label class="msgLogin"><span style="color: #01a620;">Seja Bem Vindo!</span></label>';
+					$_SESSION['msgLogin'] = '<label class="msgLogin"><span style="color: #01a620;">Seja Bem Vindo (a)!</span></label>';
 				} else {
 					header('Location: /construsonhos?modalName=myModalLogin');
 					$_SESSION['msgLogin'] = '<label class="msgLogin"><span style="color: #c22d43;">E-mail ou senha incorreto</span></label>';

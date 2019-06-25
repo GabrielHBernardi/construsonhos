@@ -75,10 +75,12 @@
                   </div>
                   <section class="panel" style="width: 100%;border-top: 1px solid #ccc;margin-bottom: 10px;">
                     <header class="panel-heading">
-                      Itens serviço
+                      Itens serviço (Incluir o metro quadrado de cada área)
+                      <br/>
+                      <strong>Exemplo: Reformar a cozinha + Reformar o banheiro + Fazer uma churrasqueira</strong>
                     </header>
                     <div class="panel-body" style="border-width: 1px 1px 1px;padding: 5px;">
-                      <input name="checklistServico" id="tagsinput" class="tagsinput" />
+                      <input name="tagsinput" id="tagsinput" class="tagsinput" />
                     </div>
                   </section>
                   <button type="submit" class="btn btn-primary">Solicitar orçamento</button>

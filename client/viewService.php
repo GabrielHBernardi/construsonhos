@@ -88,7 +88,7 @@
                       <input disabled type="text" class="form-control endereco" name="numeroServico" placeholder="Nº" value="<?php echo $row['numeroServico']; ?>">
                     </div>
                   </div>
-                  <section class="panel" style="width: 100%;border-top: 1px solid #ccc;margin-bottom: 10px;pointer-events: none;">
+                  <section class="panel" style="width: 100%;border-top: 1px solid #ccc;margin-bottom: 10px;">
                     <?php
                       include "../config/conectionDB.php";
 
@@ -105,8 +105,8 @@
                     <header class="panel-heading">
                       Itens serviço
                     </header>
-                    <div class="panel-body" style="border-width: 1px 1px 1px;padding: 5px;">
-                      <input name="tagsinput" id="tagsinput" class="tagsinput" disabled />
+                    <div class="panel-body" style="border-width: 1px 1px 1px;padding: 5px;pointer-events: none;">
+                      <input name="tagsinput" id="tagsinput" class="tagsinput" />
                     </div>
                   </section>
                   <div class="form-group inteira">

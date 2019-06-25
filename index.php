@@ -545,7 +545,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-        <h4 class="modal-title">Sua conta já esta cadastrada. Informe seu dados abaixo para cadastrar uma senha para sua conta.</h4>
+        <h4 class="modal-title">Sua conta já esta cadastrada. Informe seu dados abaixo para criar uma senha para sua conta.</h4>
       </div>
       <div class="modal-body">
 

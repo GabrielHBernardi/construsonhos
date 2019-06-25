@@ -2,6 +2,11 @@ $(document).ready(function(){
     change_password_client();
     change_my_account();
     new_service();
+    load_service_items();
+
+    setTimeout(function () {
+        $('.msgLogin').hide();
+    }, 5000);
 
     $('#telefone').mask('(99) 999999999');
     $('#cpf').mask('999.999.999-99');
@@ -41,7 +46,8 @@ function new_service(){
             'ruaServico': { required: true },
             'numeroServico': { required: true },
             'metroQuadradoServico': { required: true },
-            'valorMaoDeObraServico': { required: true }
+            'valorMaoDeObraServico': { required: true },
+            'tagsinput': { required: true }
         },
         messages: {
             'idCliente': { required: '<span style="color: #c22d43;"> Selecione o cliente</span>' },
@@ -55,7 +61,8 @@ function new_service(){
             'ruaServico': { required: '<span style="color: #c22d43;"> Digite a rua</span>' },
             'numeroServico': { required: '<span style="color: #c22d43;"> Digite o número</span>' },
             'metroQuadradoServico': { required: '<span style="color: #c22d43;"> Digite a quantidade total de metros quadrados</span>' },
-            'valorMaoDeObraServico': { required: '<span style="color: #c22d43;"> Digite o valor da mão de obra</span>' }
+            'valorMaoDeObraServico': { required: '<span style="color: #c22d43;"> Digite o valor da mão de obra</span>' },
+            'tagsinput': { required: '<span style="color: #c22d43;"> Digite no mínimo 1 item</span>' },
         },
         submitHandler: function (form) {
             var options = {
@@ -188,5 +195,43 @@ function change_my_account(){
         setTimeout(function () {
             $('#msgs-my-account').html('');
         }, 5000);
+    }
+}
+
+var getParams = function () {
+    var params = {};
+    var parser = document.createElement('a');
+    parser.href = window.location.href;
+    var query = parser.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        params[pair[0]] = decodeURIComponent(pair[1]);
+    }
+    return params;
+};
+
+function load_service_items() {
+    var path = window.location.pathname;
+    path = path.split("/");
+    path = path[3];
+    var pages = ["viewService.php"];
+
+    if($.inArray(path, pages) != -1) {
+        var params = getParams();
+
+        $.ajax({
+            url: "/construsonhos/client/loadServicesItems.php",
+            type: "POST",
+            dataType: "json",
+            data: ({
+                service_id: params["idServico"]
+            }),
+            success: function(data) {
+                $.each(data, function(i, item) {
+                    $("#tagsinput").addTag(item.descr);
+                });
+            }
+        })
     }
 }

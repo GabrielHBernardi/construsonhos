@@ -141,12 +141,6 @@
 
   <?php include('footer.php'); ?>
 
-    <script>
-      setTimeout(function () {
-        $('.msgLogin').hide();
-      }, 5000);
-    </script>
-
 </body>
 
 </html>

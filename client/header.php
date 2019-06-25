@@ -16,7 +16,7 @@
   </div>
 
   <!--logo start-->
-  <a href="index.html" class="logo">CONSTRUTORA <span class="lite">CONSTRUSONHOS</span></a>
+  <a href="index.php" class="logo">CONSTRUTORA <span class="lite">CONSTRUSONHOS</span></a>
   <!--logo end-->
 
   <div class="top-nav notification-row">
