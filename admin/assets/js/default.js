@@ -46,6 +46,7 @@ $(document).ready(function(){
     $('#cpf').mask('999.999.999-99');
     $('#cep').mask('99999-999');
     $('#valorUnitario').mask('99.999.999,99', {reverse: true});
+    $('#valorMaterialServico').mask('99.999.999,99', {reverse: true});
 
     setTimeout(function () {
         $('#msgs-edit-provider').hide();

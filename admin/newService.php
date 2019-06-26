@@ -137,7 +137,7 @@
                   </section>
                   <div class="form-group inteira">
                     <label for="exampleInputPassword1">Valor materiais</label>
-                    <input type="text" id="valorUnitario" class="form-control" name="valorMaterialServico"/>
+                    <input type="text" id="valorMaterialServico" class="form-control" name="valorMaterialServico" />
                   </div>
                   <div class="form-group inteira">
                     <label for="exampleInputPassword1">Valor mão de obra</label>

@@ -83,7 +83,7 @@
                       <input name="tagsinput" id="tagsinput" class="tagsinput" />
                     </div>
                   </section>
-                  <button type="submit" class="btn btn-primary">Solicitar orçamento</button>
+                  <button type="submit" class="btn btn-primary">Solicitar serviço/orçamento</button>
                   <div id="msgs-new-provider">
                     <?php
                       if (isset($_SESSION['msgNewProvider'])) {

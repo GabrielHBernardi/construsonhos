@@ -43,6 +43,8 @@
           $exec_query = mysqli_query($conexao, $query);
 
           $row = mysqli_fetch_assoc($exec_query);
+
+          $valorMaoDeObraServico = $row['valorMaoDeObraServico'];
         ?>
 
         <div class="row">
@@ -152,8 +154,8 @@
                                     <td><?php echo $material["nome_material"]; ?></td>
                                     <td><?php echo $material["qtd"]; ?></td>
                                     <td><?php echo $material["nomeFornecedor"]; ?></td>
-                                    <td><?php echo $material["preco"]; ?></td>
-                                    <td><?php echo $material["total"]; ?></td>
+                                    <td><?php echo 'R$ ' . number_format($material["preco"], 2, ',', '.'); ?></td>
+                                    <td><?php echo 'R$ ' . number_format($material["total"], 2, ',', '.'); ?></td>
                                 </tr>
                             <?php }
                           ?>
@@ -161,11 +163,57 @@
                     </table>
                   </div>
                   <div class="form-group inteira">
+                    <label for="exampleInputPassword1">Valor materiais</label>
+                    <?php
+                      $total_materiais = str_replace('.','', $total_materiais);
+                    ?>
+                    <input type="text" id="valorMaterialServico" class="form-control" name="valorMaoDeObraServico" disabled value="<?php echo $total_materiais; ?>"/>
+                  </div>
+                  <div class="form-group inteira">
                     <label for="exampleInputPassword1">Valor mão de obra</label>
-                    <input type="text" id="valorUnitario" class="form-control" name="valorMaoDeObraServico" disabled value="<?php echo $row['valorMaoDeObraServico'] + $total_materiais; ?>"/>
+                    <?php
+                      $valorMaoDeObraServico = str_replace('.','', $valorMaoDeObraServico);
+                    ?>
+                    <input type="text" id="valorUnitario" class="form-control" name="valorMaoDeObraServico" disabled value="<?php echo $valorMaoDeObraServico; ?>"/>
+                  </div>
+                  <div class="form-group inteira">
+                    <label for="exampleInputPassword1">Valor total do serviço</label>
+                    <?php
+                      $valorTotalServico = $valorMaoDeObraServico + $total_materiais;
+                      $valorTotalServico = str_replace('.','', $valorTotalServico);
+                    ?>
+                    <input type="text" id="valorTotal" class="form-control" disabled value="<?php echo $valorTotalServico; ?>"/>
                   </div>
                   <div class="buttons">
                     <a class="btn btn-primary" href="/construsonhos/client/listService.php">Voltar</a>
+                    <?php
+                      $idServico_status = filter_input(INPUT_GET, 'idServico', FILTER_SANITIZE_NUMBER_INT);
+
+                      $query_status = "SELECT * FROM tb_servico WHERE idServico = '$idServico'";
+
+                      $exec_query_status = mysqli_query($conexao, $query_status);
+
+                      $row_status = mysqli_fetch_assoc($exec_query_status);
+                      if ($row_status['statusServico'] != 'Concluído' && $row_status['statusServico'] != 'Aceito' && $row_status['statusServico'] != 'Em andamento' && $row_status['statusServico'] != 'Cancelado/Recusado') {
+                    ?>
+                    <a href="processCancelService.php?idServico=<?php echo $row_status['idServico']; ?>" data-confirm-cancel-service="Tem certeza que deseja cancelar o serviço selecionado?" class="btn btn-danger" href="#">Cancelar/Recusar</i></a>
+                    <?php
+                      }
+                    ?>
+                    <?php
+                      $idServico_status_client = filter_input(INPUT_GET, 'idServico', FILTER_SANITIZE_NUMBER_INT);
+
+                      $query_status_client = "SELECT * FROM tb_servico WHERE idServico = '$idServico'";
+
+                      $exec_query_status_client = mysqli_query($conexao, $query_status_client);
+
+                      $row_status_client = mysqli_fetch_assoc($exec_query_status_client);
+                      if ($row_status_client['statusServico'] == 'Aguardando aprovação do cliente') {
+                    ?>
+                    <a href="processAcceptService.php?idServico=<?php echo $row_status_client['idServico']; ?>" data-confirm-accept-service="Tem certeza que deseja aceitar o serviço/orçamento selecionado?" class="btn btn-success" href="#">Aceitar</a>
+                    <?php
+                      }
+                    ?>
                   </div>
                   <div id="msgs-new-provider">
                     <?php

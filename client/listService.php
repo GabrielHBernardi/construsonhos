@@ -70,7 +70,8 @@
                     <!-- <th><i class="fas fa-dollar-sign"></i> Valor mão de obra</th> -->
                     <th><i class="fas fa-clipboard-list"></i> Carta de cobrança</th>
                     <th><i class="fas fa-file-invoice-dollar"></i> Comprovante de pagamento</th>
-                    <th><i class="icon_cogs"></i> Visualizar/Cancelar</th>
+                    <th><i class="fas fa-file-invoice-dollar"></i> Status do pagamento</th>
+                    <th><i class="icon_cogs"></i> Visualizar</th>
                   </tr>
                   <?php
                     $idCliente = $_SESSION['idCliente'];
@@ -131,16 +132,10 @@
                         ?>
                       </div>
                     </td>
+                    <td><?php echo $row['statusPagamentoServico']; ?></td>
                     <td>
                       <div class="btn-group align" style="margin-left: 30px;">
                         <a href="viewService.php?idServico=<?php echo $row['idServico']; ?>" class="btn btn-primary blue" href="#"><i class="fas fa-eye"></i></a>
-                        <?php
-                          if ($row['statusServico'] != 'Concluído' && $row['statusServico'] != 'Aceito' && $row['statusServico'] != 'Em andamento' && $row['statusServico'] != 'Cancelado/Recusado') {
-                        ?>
-                        <a href="processCancelService.php?idServico=<?php echo $row['idServico']; ?>" data-confirm-cancel-service="Tem certeza que deseja cancelar o serviço selecionado?" class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
-                        <?php
-                          }
-                        ?>
                       </div>
                     </td>
                   </tr>

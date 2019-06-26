@@ -3,6 +3,11 @@ $(document).ready(function(){
     change_my_account();
     new_service();
     load_service_items();
+    load_service_items_collection_letter();
+
+    $('#valorUnitario').mask('99.999.999,99', {reverse: true});
+    $('#valorMaterialServico').mask('99.999.999,99', {reverse: true});
+    $('#valorTotal').mask('99.999.999,99', {reverse: true});
 
     setTimeout(function () {
         $('.msgLogin').hide();
@@ -27,6 +32,16 @@ $(document).ready(function(){
         }
         $('#dataComfirmOK').attr('href', href);
         $('#confirm-delete').modal({show: true});
+        return false;    
+    });
+
+    $('a[data-confirm-accept-service]').click(function(ev){
+        var href = $(this).attr('href');
+        if(!$('#confirm-accept').length){
+            $('body').append('<div class="modal fade" id="confirm-accept" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header bg-danger text-white">ACEITAR SERVIÇO/ORÇAMENTO<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza de que deseja aceitar o serviço/orçamento selecionado?</div><div class="modal-footer"><button type="button" class="btn btn-danger" data-dismiss="modal">Não aceitar</button><a class="btn btn-success text-white" id="dataComfirmOKAccept">Aceitar</a></div></div></div></div>');
+        }
+        $('#dataComfirmOKAccept').attr('href', href);
+        $('#confirm-accept').modal({show: true});
         return false;    
     });
     
@@ -230,6 +245,34 @@ function load_service_items() {
             success: function(data) {
                 $.each(data, function(i, item) {
                     $("#tagsinput").addTag(item.descr);
+                });
+            }
+        })
+    }
+}
+
+
+
+
+function load_service_items_collection_letter() {
+    var path = window.location.pathname;
+    path = path.split("/");
+    path = path[3];
+    var pages = ["newCollectionLetter.php"];
+
+    if($.inArray(path, pages) != -1) {
+        var params = getParams();
+
+        $.ajax({
+            url: "/construsonhos/client/loadServicesItems.php",
+            type: "POST",
+            dataType: "json",
+            data: ({
+                service_id: params["idServico"]
+            }),
+            success: function(data) {
+                $.each(data, function(i, item) {
+                    $("#li-itens-servicos").addTag(item.descr);
                 });
             }
         })
