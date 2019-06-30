@@ -141,7 +141,7 @@
                     <label for="exampleInputPassword1">Valor total do serviço: <?php echo number_format($valorTotalServico, 2, ',', '.'); ?></label>
                   </div>
                   <div class="form-group inteira">
-                    <input type="file" name="arquivo">
+                    <input type="file" name="arquivo" required>
                   </div>
                   <div class="buttons">
                     <button type="submit" class="btn btn-primary">Anexar comprovante</button>

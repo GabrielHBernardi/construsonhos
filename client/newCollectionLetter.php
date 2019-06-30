@@ -135,7 +135,7 @@
 					<p style="font-size: 18px;">CPF: <b>032.316.220-77</b></p>
 					<p style="font-size: 18px;">Valor: <b>'.number_format($valorTotalServico, 2, ',', '.').'</b></p>
 				</div>
-				<p style="font-size: 18px;">Após realizar o pagamento, anexe o comprovante <a href="/construsonhos/client/">aqui</a>.</p>
+				<p style="font-size: 18px;">Após realizar o pagamento, anexe o comprovante na <a href="/construsonhos/client/listService.php">página dos seus serviços</a>.</p>
 				<p style="font-size: 18px;">Caso tenha problemas para realizar o pagamento, entre em contato antes do vencimento acima.</p>
 				<br/>
 				<p style="font-size: 18px;"><b><i>Atenciosamente,</b></i></p>

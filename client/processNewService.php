@@ -12,7 +12,7 @@
 	$ruaServico = filter_input(INPUT_POST, 'ruaServico', FILTER_SANITIZE_STRING);
 	$numeroServico = filter_input(INPUT_POST, 'numeroServico', FILTER_SANITIZE_NUMBER_INT);
 
-	$query = "INSERT INTO tb_servico (idCliente, tipoServico, dataServico, statusServico, cepServico, estadoServico, cidadeServico, bairroServico, ruaServico, numeroServico, valorMaoDeObraServico, valorMaterialServico, comprovantePagamentoServico, statusPagamentoServico) VALUES ('$idCliente', '$tipoServico', '', 'Aguardando retorno da construtora', '$cepServico', '$estadoServico', '$cidadeServico', '$bairroServico', '$ruaServico', '$numeroServico', '', '', '', '')";
+	$query = "INSERT INTO tb_servico (idCliente, tipoServico, dataServico, statusServico, cepServico, estadoServico, cidadeServico, bairroServico, ruaServico, numeroServico, valorMaoDeObraServico, valorMaterialServico, comprovantePagamentoServico, statusPagamentoServico) VALUES ('$idCliente', '$tipoServico', '', 'Aguardando retorno da construtora', '$cepServico', '$estadoServico', '$cidadeServico', '$bairroServico', '$ruaServico', '$numeroServico', '', '', '', 'Serviço ainda não concluído')";
 
 	$exec_query = mysqli_query($conexao, $query);
 

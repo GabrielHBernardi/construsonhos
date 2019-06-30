@@ -64,11 +64,13 @@
                     <th><i class="fas fa-id-card-alt"></i> Código</th>
                     <th><i class="fas fa-users"></i> Cliente</th>
                     <th><i class="fas fa-wrench"></i> Tipo</th>
-                    <th><i class="fas fa-map-marked-alt"></i> Endereço</th>
-                    <th><i class="fas fa-calendar-alt"></i> Data</th>
+                    <!-- <th><i class="fas fa-map-marked-alt"></i> Endereço</th> -->
+                    <!-- <th><i class="fas fa-calendar-alt"></i> Data</th> -->
                     <th><i class="fas fa-business-time"></i> Status</th>
-                    <th><i class="fas fa-dollar-sign"></i> Valor mão de obra</th>
+                    <!-- <th><i class="fas fa-dollar-sign"></i> Valor mão de obra</th> -->
                     <th><i class="fas fa-clipboard-list"></i> Carta de cobrança</th>
+                    <th><i class="fas fa-file-invoice-dollar"></i> Comprovante de pagamento</th>
+                    <th><i class="fas fa-file-invoice-dollar"></i> Status do pagamento</th>
                     <th><i class="icon_cogs"></i> Editar/Excluir</th>
                   </tr>
                   <?php
@@ -94,21 +96,58 @@
                         ?>
                     </td>
                     <td><?php echo $row['tipoServico']; ?></td>
-                    <td style="max-width: 250px;"><?php echo $row['ruaServico']; ?> - <?php echo $row['numeroServico']; ?> - <?php echo $row['bairroServico']; ?> - <?php echo $row['cidadeServico']; ?> / <?php echo $row['estadoServico']; ?> | <?php echo $row['cepServico']; ?></td>
-                    <td><?php echo $row['dataServico']; ?></td>
+                    <!-- <td style="max-width: 250px;"><?php echo $row['ruaServico']; ?> - <?php echo $row['numeroServico']; ?> - <?php echo $row['bairroServico']; ?> - <?php echo $row['cidadeServico']; ?> / <?php echo $row['estadoServico']; ?> | <?php echo $row['cepServico']; ?></td> -->
+                    <!-- <td><?php echo $row['dataServico']; ?></td> -->
                     <td><?php echo $row['statusServico']; ?></td>
-                    <td><?php echo 'R$ ' . number_format($row['valorMaoDeObraServico'], 2, ',', '.'); ?></td>
+                    <!-- <td><?php echo 'R$ ' . number_format($row['valorMaoDeObraServico'], 2, ',', '.'); ?></td> -->
                     <td>
+                      <?php
+                        if ($row['statusServico'] == 'Concluído') {
+                      ?>
                       <div class="btn-group align">
                         <div style="display: flex; flex-direction: column; justify-content: center;">
-                          <p style="font-weight: bold;margin: 0px;">Gerar</p>
-                          <a class="btn btn-primary blue" href="newCollectionLetter.php?idServico=<?php echo $row['idServico']; ?>"><i class="fas fa-paper-plane"></i></a>
-                        </div>
-                        <div style="display: flex; flex-direction: column; justify-content: center;">
-                          <p style="font-weight: bold;margin: 0px;">Gerada</p>
-                          <a class="btn btn-primary blue" href="#"><i class="fas fa-eye"></i></a>
+                          <a class="btn btn-primary blue" href="newCollectionLetter.php?idServico=<?php echo $row['idServico']; ?>"><i class="fas fa-eye"></i></a>
                         </div>
                       </div>
+                      <?php
+                        }
+                      ?>
+                    </td>
+                    <td>
+                      <div class="btn-group align" style="margin-left: 30px;">
+                        <?php
+                          if ($row['comprovantePagamentoServico'] != '') {
+                        ?>
+                          <a class="btn btn-primary blue" target="_blank" href="/construsonhos/comprovantes/<?php echo $row['comprovantePagamentoServico']; ?>"><i class="fas fa-eye"></i></a>
+                        <?php
+                          }
+                        ?>
+                      </div>
+                    </td>
+                    <td>
+                    <?php
+                    if ($row['statusPagamentoServico'] == 'Recusado') { ?>
+                      <span style="color: #ff2d55;"><?php echo $row['statusPagamentoServico']; ?></span>
+                    <?php } else if ($row['statusPagamentoServico'] == 'Aprovado') { ?>
+                      <span style="color: #4cd964;"><?php echo $row['statusPagamentoServico']; ?></span>
+                    <?php } ?>
+                    <?php echo " "; ?>
+                    <?php
+                      if ($row['statusServico'] == 'Concluído' && $row['statusPagamentoServico'] == 'Aprovado') {
+                    ?>
+                    <a href="processPaymentDeclined.php?idServico=<?php echo $row['idServico']; ?>" class="btn btn-danger"><i class="icon_close_alt2"></i></a>
+                    <?php
+                      } else if ($row['statusServico'] == 'Concluído' && $row['statusPagamentoServico'] == 'Recusado') {
+                    ?>
+                    <a href="processPaymentAccepted.php?idServico=<?php echo $row['idServico']; ?>" class="btn btn-success"><i class="icon_check_alt2"></i></a>
+                    <?php
+                      } else if ($row['statusServico'] == 'Concluído' && $row['statusPagamentoServico'] == 'Em análise') {
+                    ?>
+                    <a href="processPaymentDeclined.php?idServico=<?php echo $row['idServico']; ?>" class="btn btn-danger"><i class="icon_close_alt2"></i></a>
+                    <a href="processPaymentAccepted.php?idServico=<?php echo $row['idServico']; ?>" class="btn btn-success"><i class="icon_check_alt2"></i></a>
+                    <?php
+                      }
+                    ?>
                     </td>
                     <td>
                       <div class="btn-group align">

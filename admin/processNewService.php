@@ -18,7 +18,7 @@
 	$valorMaterialServico = filter_input(INPUT_POST, 'valorMaterialServico', FILTER_SANITIZE_STRING);
 	$valorMaterialServico = str_replace(['.',','], ['', '.'], $valorMaterialServico);
 
-	$insere_dados = "INSERT INTO tb_servico (idCliente, tipoServico, dataServico, statusServico, cepServico, estadoServico, cidadeServico, bairroServico, ruaServico, numeroServico, valorMaoDeObraServico, valorMaterialServico, comprovantePagamentoServico, statusPagamentoServico) VALUES ('$idCliente', '$tipoServico', '$dataServico', '$statusServico', '$cepServico', '$estadoServico', '$cidadeServico', '$bairroServico', '$ruaServico', '$numeroServico', '$valorMaoDeObraServico', '$valorMaterialServico', '', '')";
+	$insere_dados = "INSERT INTO tb_servico (idCliente, tipoServico, dataServico, statusServico, cepServico, estadoServico, cidadeServico, bairroServico, ruaServico, numeroServico, valorMaoDeObraServico, valorMaterialServico, comprovantePagamentoServico, statusPagamentoServico) VALUES ('$idCliente', '$tipoServico', '$dataServico', '$statusServico', '$cepServico', '$estadoServico', '$cidadeServico', '$bairroServico', '$ruaServico', '$numeroServico', '$valorMaoDeObraServico', '$valorMaterialServico', '', 'Serviço ainda não concluído')";
 
 	$resultado_insercao = mysqli_query($conexao, $insere_dados);
 

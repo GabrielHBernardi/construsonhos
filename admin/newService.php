@@ -124,7 +124,8 @@
 
                             while($row_query = mysqli_fetch_assoc($exec_query2)){
                           ?>
-                            <option value="<?php echo $row_query['idMaterial']; ?>"><?php echo $row_query['nomeMaterial']; ?></option>
+                            <option value="<?php echo $row_query['idMaterial']; ?>"><?php echo $row_query['nomeMaterial']; ?> ||| <?php $idFornecedorQuery = $row_query['idFornecedor']; $query_forn = "SELECT nomeFornecedor FROM tb_fornecedor WHERE idFornecedor=$idFornecedorQuery"; $exec_forn = mysqli_query($conexao, $query_forn); $row_query_forn = mysqli_fetch_assoc($exec_forn); echo $row_query_forn['nomeFornecedor']; ?> ||| R$ <?php echo number_format($row_query['valorUnitarioMaterial'], 2, ',', '.'); ?>
+                            </option>
                           <?php
                             }
                         ?>

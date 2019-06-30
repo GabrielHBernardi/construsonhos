@@ -150,7 +150,8 @@
 
                                 while($row_query = mysqli_fetch_assoc($exec_query2)){
                               ?>
-                                <option <?php echo ($row_query["idMaterial"] == $row["idMaterial"]? "selected": ""); ?> value="<?php echo $row_query['idMaterial']; ?>"><?php echo $row_query['nomeMaterial']; ?></option>
+                            </option>
+                                <option <?php echo ($row_query["idMaterial"] == $row["idMaterial"]? "selected": ""); ?> value="<?php echo $row_query['idMaterial']; ?>"><?php echo $row_query['nomeMaterial']; ?> ||| <?php $idFornecedorQuery = $row_query['idFornecedor']; $query_forn = "SELECT nomeFornecedor FROM tb_fornecedor WHERE idFornecedor=$idFornecedorQuery"; $exec_forn = mysqli_query($conexao, $query_forn); $row_query_forn = mysqli_fetch_assoc($exec_forn); echo $row_query_forn['nomeFornecedor']; ?> ||| R$ <?php echo number_format($row_query['valorUnitarioMaterial'], 2, ',', '.'); ?></option>
                               <?php
                                 }
                             ?>
@@ -186,8 +187,24 @@
                     <label for="exampleInputPassword1">Valor mão de obra</label>
                     <input type="text" id="valorUnitario" class="form-control" name="valorMaoDeObraServico" value="<?php echo $row['valorMaoDeObraServico']; ?>"/>
                   </div>
+                  <?php
+                    $idServico_orc = filter_input(INPUT_GET, 'idServico', FILTER_SANITIZE_NUMBER_INT);
+                    $query_orc = "SELECT * FROM tb_servico WHERE idServico = '$idServico_orc'";
+                    $exec_query_orc = mysqli_query($conexao, $query_orc);
+                    $row_orc = mysqli_fetch_assoc($exec_query_orc);
+                  ?>
                   <div class="buttons">
-                    <button type="submit" class="btn btn-primary">Editar serviço</button>
+                    <?php
+                      if ($row_orc['statusServico'] == 'Aguardando retorno da construtora') {
+                    ?>
+                    <button type="submit" class="btn btn-primary">Enviar orçamento</button>
+                    <?php
+                      } else {
+                    ?>
+                    <button type="submit" class="btn btn-primary">Editar</button>
+                    <?php
+                      }
+                    ?>
                   </div>
                   <div id="msgs-new-provider">
                     <?php

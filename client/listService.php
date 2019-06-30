@@ -126,7 +126,7 @@
                         <?php
                           if ($row['comprovantePagamentoServico'] != '') {
                         ?>
-                          <a class="btn btn-primary blue" href="newCollectionLetter.php?idServico=<?php echo $row['idServico']; ?>"><i class="fas fa-eye"></i></a>
+                          <a class="btn btn-primary blue" target="_blank" href="/construsonhos/comprovantes/<?php echo $row['comprovantePagamentoServico']; ?>"><i class="fas fa-eye"></i></a>
                         <?php
                           }
                         ?>

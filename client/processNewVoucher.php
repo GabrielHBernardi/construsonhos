@@ -23,9 +23,12 @@
 	if($_FILES['arquivo']['error'] != 0){
 		die("Não foi possivel fazer o upload, erro: <br />". $_UP['erros'][$_FILES['arquivo']['error']]);
 	}
+
+	$string = $_FILES['arquivo']['name'];
+	$strings = explode('.', $string);
 	
-	$extensao = strtolower(end(explode('.', $_FILES['arquivo']['name'])));
-	if(array_search($extensao, $_UP['extensoes'])=== false){		
+	$extensao = end($strings);
+	if(array_search($extensao, $_UP['extensoes']) === false){		
 		echo "
 			<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/construsonhos/client/newVoucher.php?idServico=$idServico'>
 			<script type=\"text/javascript\">
@@ -50,13 +53,9 @@
 			$nome_final = $_FILES['arquivo']['name'];
 		}
 		if(move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta']. $nome_final)){
-			$query = mysqli_query($conexao, "UPDATE tb_cliente SET comprovantePagamentoServico = '$nome_final' WHERE idServico = '$idServico'");
-			echo "
-				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/construsonhos/client/newVoucher.php?idServico=$idServico'>
-				<script type=\"text/javascript\">
-					alert(\"Imagem cadastrada com Sucesso.\");
-				</script>
-			";	
+			$query = mysqli_query($conexao, "UPDATE tb_servico SET comprovantePagamentoServico = '$nome_final', statusPagamentoServico = 'Em análise' WHERE idServico = '$idServico'");
+			header('Location: listService.php');
+			$_SESSION['msgNewProvider'] = '<label class="msgLogin"><span style="color: #01a620;">Comprovante enviado com sucesso! Em breve será feito a validação do mesmo.</span></label>';
 		}else{
 			echo "
 				<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/construsonhos/client/newVoucher.php?idServico=$idServico'>
