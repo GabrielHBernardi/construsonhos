@@ -83,23 +83,23 @@
 
     // $table_materiais = "<table>";
     // 	$table_materiais .= "<thead>";
-    		$table_materiais = "<div>";
-    			$table_materiais .= "<p>Material</p>";
-    			$table_materiais .= "<p>Quantidade</p>";
-    			$table_materiais .= "<p>Fornecedor</p>";
-    			$table_materiais .= "<p>Preço unitário</p>";
-    			$table_materiais .= "<p>Total do item</p>";
-    		$table_materiais .= "<div>";
+    		// $table_materiais = "<div style='height: 0px;'>";
+    			$table_materiais = '';
+    			// $table_materiais .= "<p>Quantidade</p>";
+    			// $table_materiais .= "<p>Fornecedor</p>";
+    			// $table_materiais .= "<p>Preço unitário</p>";
+    			// $table_materiais .= "<p>Total do item</p>";
+    		// $table_materiais .= "<div>";
     	// $table_materiais .= "</thead>";
     	// $table_materiais .= "<tbody>";
         foreach ($materiais as $key => $material) {
-            $table_materiais .= "<div>";
-                $table_materiais .= "<p>" . $material["nome_material"] . "</p>";
-                $table_materiais .= "<p>" . $material["qtd"] . "</p>";
-                $table_materiais .= "<p>" . $material["nomeFornecedor"] . "</p>";
-                $table_materiais .= "<p>" . $material["preco"] . "</p>";
-                $table_materiais .= "<p>" . $material["total"] . "</p>";
-            $table_materiais .= "</div>";
+            // $table_materiais .= "<ul>";
+                $table_materiais .= "<li style='font-size: 18px;'>" . $material["qtd"] . " unidades de " . $material["nome_material"] . "</li>";
+                // $table_materiais .= "<p>" . $material["qtd"] . "</p>";
+                // $table_materiais .= "<p>" . $material["nomeFornecedor"] . "</p>";
+                // $table_materiais .= "<p>" . $material["preco"] . "</p>";
+                // $table_materiais .= "<p>" . $material["total"] . "</p>";
+            // $table_materiais .= "</ul>";
         }
 	//   	$table_materiais .= "</tbody>";
 	// $table_materiais .= "</table>";
@@ -122,7 +122,9 @@
 					' . $itens_servico . '
 				</ul>
 				<p style="font-size: 18px;"><b>Materiais utilizados:</b></p>
+				<ul>
 					' . $table_materiais . '
+				</ul>
 				<p style="font-size: 18px;">Valor total dos materiais: <b>'.number_format($total_materiais, 2, ',', '.').'</b></p>
 				<p style="font-size: 18px;">Valor da mão de obra: <b>'.number_format($valorMaoDeObraServico, 2, ',', '.').'</b></p>
 				<p style="font-size: 18px;">O pagamento deve ser feito via transferência ou depósito bancário para a conta com os dados detalhados abaixo:</p>

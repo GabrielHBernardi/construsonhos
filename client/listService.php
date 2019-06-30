@@ -119,7 +119,7 @@
                         <?php
                           if ($row['statusServico'] == 'Concluído') {
                         ?>
-                        <a href="editService.php?idServico=<?php echo $row['idServico']; ?>" class="btn btn-primary green" href="#"><i class="fas fa-paperclip"></i></a>
+                        <a class="btn btn-primary green" href="newVoucher.php?idServico=<?php echo $row['idServico']; ?>"><i class="fas fa-paperclip"></i></a>
                         <?php
                           }
                         ?>
