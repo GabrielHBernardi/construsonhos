@@ -57,3 +57,5 @@
   <script src="assets/js/bootstrap-switch.js"></script>
   <script type="text/javascript" src="assets/js/ga.js"></script>
   <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+  <!-- <script src="//code.jquery.com/jquery-3.3.1.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>

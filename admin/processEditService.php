@@ -46,7 +46,7 @@
 		}
 
 		header('Location: listService.php');
-		$_SESSION['msgEditProvider'] = '<label class="msgLogin"><span style="color: #01a620;">Serviço editado com sucesso</span></label>';
+		$_SESSION['msgNewProvider'] = '<label class="msgLogin"><span style="color: #01a620;">Serviço editado com sucesso</span></label>';
 	} else {
 		header("Location: editService.php?idServico=$idServico");
 		$_SESSION['msgNewProvider'] = '<label class="msgsNewProvider"><span style="color: #c22d43;">Erro ao editar serviço</span></label>';

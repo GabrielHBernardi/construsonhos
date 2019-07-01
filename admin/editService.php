@@ -183,9 +183,22 @@
                     <button id="btn_add_material">Adicionar novo material</button>
                     </div>
                   </section>
+                  <?php
+                    $idServico = filter_input(INPUT_GET, 'idServico', FILTER_SANITIZE_NUMBER_INT);
+
+                    $query = "SELECT * FROM tb_servico WHERE idServico = '$idServico'";
+
+                    $exec_query = mysqli_query($conexao, $query);
+
+                    $row = mysqli_fetch_assoc($exec_query);
+
+                    $valorMaoDeObraServico = $row['valorMaoDeObraServico'];
+
+                    $valorMaoDeObraServico = str_replace('.','', $valorMaoDeObraServico);
+                  ?>
                   <div class="form-group inteira">
                     <label for="exampleInputPassword1">Valor mão de obra</label>
-                    <input type="text" id="valorUnitario" class="form-control" name="valorMaoDeObraServico" value="<?php echo $row['valorMaoDeObraServico']; ?>"/>
+                    <input type="text" id="valorUnitario" class="form-control" name="valorMaoDeObraServico" value="<?php echo $valorMaoDeObraServico; ?>"/>
                   </div>
                   <?php
                     $idServico_orc = filter_input(INPUT_GET, 'idServico', FILTER_SANITIZE_NUMBER_INT);

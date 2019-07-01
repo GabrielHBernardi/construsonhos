@@ -39,7 +39,7 @@
           <div class="col-lg-6" style="width: 100%;">
             <section class="panel">
               <div class="panel-body">
-                <form style="display: flex;flex-wrap: wrap;justify-content: space-between;" role="form" id="new-service" action="processNewService.php" method="post">
+                <form style="display: flex;flex-wrap: wrap;justify-content: space-between;" role="form" id="new-service" action="processNewService.php" method="post" enctype="multipart/form-data">
                   <?php
                     include "../config/conectionDB.php";
                     
@@ -81,6 +81,16 @@
                     </header>
                     <div class="panel-body" style="border-width: 1px 1px 1px;padding: 5px;">
                       <input name="tagsinput" id="tagsinput" class="tagsinput" />
+                    </div>
+                  </section>
+                  <section class="panel" style="width: 100%;border-top: 1px solid #ccc;margin-bottom: 10px;">
+                    <header class="panel-heading">
+                      Imagens
+                      <br/>
+                      <strong>Anexe fotos das áreas a serem realizadas o serviço e coloque o seu tamanho em m²</strong>
+                    </header>
+                    <div class="panel-body" style="border-width: 1px 1px 1px;padding: 5px;">
+                      <input type="file" name="arquivo[]" multiple required>
                     </div>
                   </section>
                   <button type="submit" class="btn btn-primary">Solicitar serviço/orçamento</button>

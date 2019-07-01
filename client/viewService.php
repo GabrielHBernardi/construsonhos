@@ -184,6 +184,28 @@
                     ?>
                     <input type="text" id="valorTotal" class="form-control" disabled value="<?php echo $valorTotalServico; ?>"/>
                   </div>
+                  <?php
+                    include "../config/conectionDB.php";
+
+                    $query_img = "SELECT * FROM tb_imagem WHERE idServico = $idServico";
+
+                    $exec_query_img = mysqli_query($conexao, $query_img);
+                  ?>
+                  <section class="panel" style="width: 100%;border-top: 1px solid #ccc;margin-bottom: 10px;">
+                    <header class="panel-heading">
+                      Imagens
+                      <br/>
+                      <strong>Fotos dos itens do serviço</strong>
+                    </header>
+                    <div class="panel-body" style="border-width: 1px 1px 1px;padding: 5px; display: flex;">
+                      <?php
+                      while($row_img = mysqli_fetch_assoc($exec_query_img)) { ?>
+                        <a data-fancybox="gallery" href="../imgservico/<?php echo $row_img['nomeImagem']; ?>">
+                          <img style="width: 100px;height: 100px;object-fit: cover; margin-right: 20px;border: 2px solid #688a7e;padding: 10px;" src="../imgservico/<?php echo $row_img['nomeImagem']; ?>">
+                        </a>
+                      <?php } ?>
+                    </div>
+                  </section>
                   <div class="buttons">
                     <a class="btn btn-primary" href="/construsonhos/client/listService.php">Voltar</a>
                     <?php

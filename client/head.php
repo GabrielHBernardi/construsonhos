@@ -36,6 +36,8 @@
   <link href="assets/css/bootstrap-colorpicker.css" rel="stylesheet" />
   <link href="assets/css/bootstrap-datepicker.css" rel="stylesheet" />
   <link href="assets/css/daterangepicker.css" rel="stylesheet" />
+  <!-- 1. Add latest jQuery and fancybox files -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 
 
 
