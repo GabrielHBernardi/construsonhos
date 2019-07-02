@@ -9,6 +9,8 @@ $(document).ready(function(){
 
     $('#telefone').mask('(99) 999999999');
     $('#cpf').mask('999.999.999-99');
+    $('#cpf1').mask('999.999.999-99');
+    $('#cpf2').mask('999.999.999-99');
 
     jQuery.validator.addMethod('confirm_password', function () {
         var password = $("#senha").val();

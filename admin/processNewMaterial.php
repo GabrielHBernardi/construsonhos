@@ -9,7 +9,7 @@
 	$valorUnitarioMaterial = filter_input(INPUT_POST, 'valorUnitarioMaterial', FILTER_SANITIZE_STRING);
 	$valorUnitarioMaterial = str_replace(['.',','], ['', '.'], $valorUnitarioMaterial);
 
-	$query = "SELECT * FROM tb_material WHERE nomeMaterial='$nomeMaterial' AND marcaMaterial='$marcaMaterial' AND idFornecedor='$idFornecedor'";
+	$query = "SELECT * FROM tb_material WHERE nomeMaterial='$nomeMaterial' AND marcaMaterial='$marcaMaterial' AND idFornecedor='$idFornecedor' AND valorUnitarioMaterial='$valorUnitarioMaterial'";
 
 	$query_fornecedor  = "SELECT * FROM tb_fornecedor WHERE idFornecedor='$idFornecedor'";
 
@@ -23,7 +23,7 @@
 
 	if (mysqli_fetch_assoc($exec_query)) {
  		header('Location: newMaterial.php');
- 		$_SESSION['msgNewProvider'] = "<label class='msgsNewProvider'><span style='color: #c22d43;'>O material '$nomeMaterial' da marca '$marcaMaterial' já cadastrado para o fornecedor '$nomeFornecedor'</span></label>";
+ 		$_SESSION['msgNewProvider'] = "<label class='msgsNewProvider'><span style='color: #c22d43;'>O material '$nomeMaterial' da marca '$marcaMaterial' já cadastrado para o fornecedor '$nomeFornecedor' com o valor de '$valorUnitarioMaterial'</span></label>";
 	} else {
 		$insere_dados = "INSERT INTO tb_material (nomeMaterial, marcaMaterial, idFornecedor, valorUnitarioMaterial) VALUES ('$nomeMaterial', '$marcaMaterial' , '$idFornecedor', '$valorUnitarioMaterial')";
 

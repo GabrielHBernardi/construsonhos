@@ -459,7 +459,7 @@
 
 				<!-- contact form -->
 				<div class="col-md-8 col-md-offset-2">
-					<form class="contact-form" method="POST" action="sendMail.php">
+					<form class="contact-form" method="POST" action="">
 						<input style="border: 2px solid #988e8e;" type="text" class="input" name="nomeContato" placeholder="Nome">
 						<input style="border: 2px solid #988e8e;height: 40px;width: calc(50% - 10px);background: #F4F4F4;color: #354052;padding: 0px 10px;opacity: 0.5;-webkit-transition: 0.2s border-color, 0.2s opacity;transition: 0.2s border-color, 0.2s opacity;" type="email" name="emailContato" class="input" placeholder="E-mail">
 						<textarea style="border: 2px solid #988e8e;" class="input" name="mensagemContato" placeholder="Mensagem"></textarea>
@@ -558,7 +558,7 @@
           	</div>
           	<div class="form-group">
                 <label for="exampleInputEmail1">CPF</label>
-                <input type="text" class="form-control" id="cpf" name="cpf_fp" id="exampleInputEmail3" placeholder="Digite seu CPF" autofocus>
+                <input type="text" class="form-control" id="cpf1" name="cpf_fp" id="exampleInputEmail3" placeholder="Digite seu CPF" autofocus>
           	</div>
           	<div class="form-group">
                 <label for="exampleInputPassword1">Senha</label>
@@ -688,7 +688,7 @@
 			</div>
 	        <div class="form-group register">
 				<label for="exampleInputEmail1">CPF</label>
-				<input type="text" name="cpf" id="cpf" class="form-control" placeholder="Digite seu CPF">
+				<input type="text" name="cpf" id="cpf2" class="form-control" placeholder="Digite seu CPF">
 			</div>
 			<div class="form-group register">
 				<label for="exampleInputEmail1">E-mail</label>

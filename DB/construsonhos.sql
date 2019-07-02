@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 01-Jul-2019 às 00:31
+-- Generation Time: 02-Jul-2019 às 22:06
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.2
 
@@ -62,11 +62,11 @@ CREATE TABLE `tb_cliente` (
 
 INSERT INTO `tb_cliente` (`idCliente`, `nomeCliente`, `cpfCliente`, `telefoneCliente`, `emailCliente`, `senhaCliente`) VALUES
 (1, 'LetÃ­cia Luiza Caldeira', '373.853.200-58', '(61) 991217644', 'leticia@gmail.com', '$2y$10$2vSuFPPNxEFI4efNh4iMn.FBcG7WwMrwEfIoZ8IuZZN6q3vtazD2O'),
-(2, 'Isis Fabiana Campos', '252.479.124-62', '(27) 989330359', 'isis@gmail.com', '$2y$10$J5ecGbQPZk8Yy3iwptnDWuDJo8HHmHUPgW3WS7HN2leyQvfiATx1W'),
+(2, 'Isis Fabiana Campos', '252.479.124-62', '(27) 989330359', 'isis@gmail.com', '$2y$10$2vSuFPPNxEFI4efNh4iMn.FBcG7WwMrwEfIoZ8IuZZN6q3vtazD2O'),
 (3, 'Carlos Fernando Lopes', '479.106.683-92', '(31) 994253919', 'carlos@gmail.com', '$2y$10$aMZVGhhyZbwOe8m3CjiFx.FjnPXxiqBlhhgYoD//HozNBiYJoWNY6'),
-(4, 'Juan Mateus Nunes', '132.486.495-85', '(84) 989974960', 'juan@gmail.com', '$2y$10$sHXReZVyiSN9lGYqyglx7usOgJ7OVPr4BQT/RzDDKlUL5FRynYUra'),
-(5, 'Bento Benjamin Juan Viana', '175.824.532-80', '(68) 987924492', 'bento@gmail.com', '$2y$10$mvMfgzqkWlX7Fs99iS6Et.Z/H0Tew2TrMrduHb0nDSkruP9gY0Due'),
-(6, 'Gabrielly Evelyn Bianca da Costa', '398.638.088-49', '(86) 992862747', 'gabs12@gmail.com', '$2y$10$b9PXAMjV6zcjxTCqxueEHeX3jCRHhYjpw2iAhEkubIJ2LFZWH0Qe2'),
+(4, 'Juan Mateus Nunes', '132.486.495-85', '(84) 989974960', 'juan@gmail.com', '$2y$10$2vSuFPPNxEFI4efNh4iMn.FBcG7WwMrwEfIoZ8IuZZN6q3vtazD2O'),
+(5, 'Bento Benjamin Juan Viana', '175.824.532-80', '(68) 987924492', 'bento@gmail.com', '$2y$10$2vSuFPPNxEFI4efNh4iMn.FBcG7WwMrwEfIoZ8IuZZN6q3vtazD2O'),
+(6, 'Gabrielly Evelyn Bianca da Costa', '398.638.088-49', '(86) 992862747', 'gabs12@gmail.com', '$2y$10$2vSuFPPNxEFI4efNh4iMn.FBcG7WwMrwEfIoZ8IuZZN6q3vtazD2O'),
 (7, 'Igor Lorenzo Vieira', '830.174.095-70', '(63) 985402768', 'igorlorenzovieira-72@itelefonica.com.br', ''),
 (8, 'Raimundo MÃ¡rio Danilo Nogueira', '198.320.048-45', '(95) 997608404', 'raimundomariodanilonogueira@verdana.com.br', ''),
 (9, 'Luiza Francisca Monteir', '107.816.220-42', '(11) 999904925', 'luizafranciscamonteiro_@nextel.com.br', ''),
@@ -75,7 +75,10 @@ INSERT INTO `tb_cliente` (`idCliente`, `nomeCliente`, `cpfCliente`, `telefoneCli
 (12, 'Raquel Laura Rocha', '204.799.444-66', '204.799.444-66', 'raquellaurarocha@otlokk.com', ''),
 (13, 'Vinicius Thomas Ruan AragÃ£o', '210.269.918-89', '210.269.918-89', 'viniciusthomasruanaragao-88@yahool.com', ''),
 (14, 'Carla LetÃ­cia Bernardes', '794.467.853-67', '794.467.853-67', 'ccarlaleticiabernardes@tecvap.com.br', ''),
-(15, 'Elza Luiza dos Santos', '466.755.193-36', '466.755.193-36', 'elzaluizadossantos@novadeliveri.com.br', '');
+(15, 'Elza Luiza dos Santos', '466.755.193-36', '466.755.193-36', 'elza@elza.com', '$2y$10$2vSuFPPNxEFI4efNh4iMn.FBcG7WwMrwEfIoZ8IuZZN6q3vtazD2O'),
+(16, 'JoÃ£o Paulo', '833.699.610-91', '(54) 991873014', 'joaop@gmail.com', '$2y$10$GZM91FFbi43xLnG9o8dz0uu24EOoTjnowC4oiKmVqPJEndgXPzxfq'),
+(17, 'AntÃ´nio Souza', '096.162.480-90', '(54) 991873014', 'antonio@antonio.com', '$2y$10$C53XBFMrBtIrZ0x7Nm4ITuxR/GZf8.n/DxyRABAGn8IwXlliD43Pa'),
+(18, 'Cliente de teste', '379.374.920-74', '(54) 991873014', 'cliente@teste.com', '');
 
 -- --------------------------------------------------------
 
@@ -107,7 +110,35 @@ INSERT INTO `tb_fornecedor` (`idFornecedor`, `nomeFornecedor`, `telefoneForneced
 (4, 'Lojas taQi', '(54) 35226092', 'lojas@taqi.com.br', '99700-036', 'RS', 'Erechim', 'Centro', 'Avenida Germano Hoffmann', 89),
 (5, 'Lojas Quero-Quero', '(54) 35204500', 'lojas@queroquero.com.br', '99700-428', 'RS', 'Erechim', 'Centro', 'PraÃ§a JÃºlio de Castilhos', 129),
 (6, 'Redemac Griebler', '(54) 33211140', 'redemac@griebler.com.br', '99700-438', 'RS', 'Erechim', 'Centro', 'Rua JoÃ£o Massignam', 192),
-(7, 'Tonin Busetto', '(54) 35221848', 'tonin@busetto.com.br', '99700-438', 'RS', 'Erechim', 'Centro', 'Rua JoÃ£o Massignam', 265);
+(7, 'Tonin Busetto', '(54) 35221848', 'tonin@busetto.com.br', '99700-438', 'RS', 'Erechim', 'Centro', 'Rua JoÃ£o Massignam', 265),
+(8, 'Fornecedor de Teste', '(54) 991873014', 'fornecedor@teste.com', '99700-428', 'RS', 'Erechim', 'Centro', 'PraÃ§a JÃºlio de Castilhos', 10);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_imagem`
+--
+
+CREATE TABLE `tb_imagem` (
+  `idImagem` int(9) NOT NULL,
+  `nomeImagem` varchar(255) NOT NULL,
+  `idServico` int(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tb_imagem`
+--
+
+INSERT INTO `tb_imagem` (`idImagem`, `nomeImagem`, `idServico`) VALUES
+(1, 'cozinha1.jpg', 1),
+(2, 'cozinha2.jpg', 1),
+(3, 'cozinha1.jpg', 2),
+(4, 'cozinha1.jpg', 3),
+(5, 'cozinha2.jpg', 3),
+(6, 'cozinha1.jpg', 4),
+(7, 'cozinha1.jpg', 6),
+(8, 'cozinha1.jpg', 9),
+(9, 'cozinha2.jpg', 9);
 
 -- --------------------------------------------------------
 
@@ -126,24 +157,21 @@ CREATE TABLE `tb_item_servico` (
 --
 
 INSERT INTO `tb_item_servico` (`idItemServico`, `idServico`, `descricaoItemServico`) VALUES
-(1, 10, ''),
-(2, 11, 'Reformar a cozinha'),
-(3, 11, 'Reformar o banheiro'),
-(4, 11, 'Fazer uma churrasqueira'),
-(8, 13, 'Item 1'),
-(9, 13, 'Item 2'),
-(10, 13, 'Item 3'),
-(14, 14, 'Reformar a cozinha'),
-(15, 14, 'Reformar o banheiro'),
-(16, 14, 'Fazer uma churrasqueira'),
-(17, 3, ''),
-(18, 12, 'Reformar a cozinha'),
-(19, 12, 'Reformar o banheiro'),
-(20, 12, 'Fazer uma churrasqueira'),
-(21, 6, ''),
-(34, 15, 'Teste 1'),
-(35, 15, 'Teste 2'),
-(36, 15, 'Teste 3');
+(9, 1, 'Colocar lajota na cozinha'),
+(10, 1, 'Pintar a cozinha'),
+(11, 2, 'Item 1'),
+(12, 2, 'Item 2'),
+(13, 2, 'item 3'),
+(14, 3, 'Item 1'),
+(15, 3, 'Item 2'),
+(16, 4, 'Item 1'),
+(17, 4, 'Item 2'),
+(18, 5, 'Item 1'),
+(19, 5, 'Item 2'),
+(20, 6, 'Item 1'),
+(21, 7, 'Item 2'),
+(22, 8, 'Item 1'),
+(23, 9, 'item');
 
 -- --------------------------------------------------------
 
@@ -163,18 +191,17 @@ CREATE TABLE `tb_materiais_servico` (
 --
 
 INSERT INTO `tb_materiais_servico` (`idMaterialServico`, `idMaterial`, `idServico`, `quantidadeTotalMateriais`) VALUES
-(13, 18, 7, 10),
-(14, 19, 7, 12),
-(15, 10, 7, 13),
-(16, 4, 7, 5),
-(17, 10, 13, 2),
-(18, 9, 13, 2),
-(19, 5, 13, 2),
-(20, 5, 14, 2),
-(21, 16, 14, 2),
-(22, 4, 14, 2),
-(29, 13, 15, 2),
-(30, 10, 15, 2);
+(10, 8, 1, 1),
+(11, 20, 1, 1),
+(12, 15, 1, 1),
+(13, 1, 2, 1),
+(14, 18, 3, 2),
+(15, 15, 4, 1),
+(16, 15, 5, 3),
+(17, 13, 6, 2),
+(18, 15, 7, 1),
+(19, 15, 8, 2),
+(20, 19, 9, 1);
 
 -- --------------------------------------------------------
 
@@ -195,7 +222,7 @@ CREATE TABLE `tb_material` (
 --
 
 INSERT INTO `tb_material` (`idMaterial`, `idFornecedor`, `nomeMaterial`, `marcaMaterial`, `valorUnitarioMaterial`) VALUES
-(1, 2, 'Cimento Todas As Obras 50kg CPII Z 32R', 'Votoran', '19.90'),
+(1, 2, 'Cimento TAO 50kg CPII Z 32R', 'Votoran', '19.90'),
 (2, 1, 'Telha Ondulada De Fibrocimento 244x110cm 5mm Residencial Cinza', 'Brasilit', '37.90'),
 (3, 4, 'Cimento CP II Z 32 50kg', 'Nacional', '18.90'),
 (4, 5, 'Bloco CerÃ¢mico 11,5x14x24cm', 'Nova Conquista', '0.59'),
@@ -214,7 +241,9 @@ INSERT INTO `tb_material` (`idMaterial`, `idFornecedor`, `nomeMaterial`, `marcaM
 (17, 5, 'Impermeabilizante Para Parede 18kg', 'Quartzolit', '189.90'),
 (18, 1, 'Cola Prego Liquido 400g', 'Quartzolit', '41.90'),
 (19, 2, 'Espuma Expansiva 500ml', 'Cascola', '46.90'),
-(20, 2, 'Cimento Comum 1kg', 'Argos', '1.99');
+(20, 2, 'Cimento Comum 1kg', 'Argos', '1.99'),
+(21, 8, 'Material de teste', 'Teste', '1.99'),
+(22, 8, 'Material de teste', 'Teste', '1.98');
 
 -- --------------------------------------------------------
 
@@ -245,19 +274,15 @@ CREATE TABLE `tb_servico` (
 --
 
 INSERT INTO `tb_servico` (`idServico`, `idCliente`, `tipoServico`, `dataServico`, `statusServico`, `cepServico`, `estadoServico`, `cidadeServico`, `bairroServico`, `ruaServico`, `numeroServico`, `valorMaoDeObraServico`, `valorMaterialServico`, `comprovantePagamentoServico`, `statusPagamentoServico`) VALUES
-(1, 1, 'Reforma', '13/06/2019 - 13/06/2019', 'Aceito', '99704-254', 'RS', 'Erechim', 'Linho', 'Rua Francisco Ferdinando Losina', 20, '1200.01', '0.00', '', 'Aprovado'),
-(2, 1, 'ManutenÃ§Ã£o ElÃ©trica', '29/06/2019 - 10/07/2019', 'Cancelado/Recusado', '99700-400', 'RS', 'Erechim', 'Centro', 'Rua Carlos Kehlers', 548, '21352.42', '0.00', '', 'Serviço não concluído'),
-(3, 1, 'ManutenÃ§Ã£o ElÃ©trica', '25/06/2019 - 25/06/2019', 'ConcluÃ­do', '99704-254', 'RS', 'Erechim', 'Linho', 'Rua Francisco Ferdinando Losina', 20, '12.00', '0.00', '', 'Em verificação'),
-(6, 1, 'ManutenÃ§Ã£o ElÃ©trica', '30/06/2019 - 30/06/2019', 'ConcluÃ­do', '99700-428', 'RS', 'Erechim', 'Centro', 'PraÃ§a JÃºlio de Castilhos', 20, '10.00', '0.00', '', 'Aprovado'),
-(7, 10, 'ConstruÃ§Ã£o', '15/06/2019 - 15/06/2019', 'Aguardando retorno da construtora', '99700-438', 'RS', 'Erechim', 'Centro', 'Rua JoÃ£o Massignam', 20, '4.00', '0.00', '', 'Negado'),
-(8, 12, 'Reforma', '', 'Em andamento', '99700-036', 'RS', 'Erechim', 'Centro', 'Avenida Germano Hoffmann', 200, '0.00', '0.00', '', 'Aceito'),
-(9, 12, 'ManutenÃ§Ã£o ElÃ©trica', '', 'Cancelado/Recusado', '99735-000', 'RS', 'Ponte Preta', 's', 's', 0, '0.00', '0.00', '', 'Aprovado'),
-(10, 12, 'Reforma', '', 'Aguardando retorno da construtora', '99704-254', 'RS', 'Erechim', 'Linho', 'Rua Francisco Ferdinando Losina', 20, '0.00', '0.00', '', 'Negado'),
-(11, 12, 'Reforma', '', 'Cancelado/Recusado', '99704-254', 'RS', 'Erechim', 'Linho', 'Rua Francisco Ferdinando Losina', 20, '0.00', '0.00', '', 'Aceito'),
-(12, 12, 'Reforma', '30/06/2019 - 30/06/2019', 'ConcluÃ­do', '99700-438', 'RS', 'Erechim', 'Centro', 'Rua JoÃ£o Massignam', 200, '10.00', '0.00', '', 'Recusado'),
-(13, 12, 'ManutenÃ§Ã£o ElÃ©trica', '26/06/2019 - 27/06/2019', 'Aguardando aprovaÃ§Ã£o do cliente', '99700-438', 'RS', 'Erechim', 'Centro', 'Rua JoÃ£o Massignam', 20, '1200.00', '1000.00', '', 'Recusado'),
-(14, 1, 'ManutenÃ§Ã£o HidrÃ¡ulica', '26/06/2019 - 28/06/2019', 'ConcluÃ­do', '99700-036', 'RS', 'Erechim', 'Centro', 'Avenida Germano Hoffmann', 20, '1600.00', '0.00', 'DiagramaDeAtividadeCliente.png', 'Aprovado'),
-(15, 1, 'ConstruÃ§Ã£o', '30/06/2019 - 30/06/2019', 'ConcluÃ­do', '99700-428', 'RS', 'Erechim', 'Centro', 'PraÃ§a JÃºlio de Castilhos', 20, '10.00', '0.00', 'DER.png', 'Aprovado');
+(1, 17, 'Reforma', '02/07/2019 - 02/07/2019', 'ConcluÃ­do', '99704-254', 'RS', 'Erechim', 'Linho', 'Rua Francisco Ferdinando Losina', 20, '399.99', '0.00', 'comprovante.png', 'Em anÃ¡lise'),
+(2, 1, 'ConstruÃ§Ã£o', '02/07/2019 - 02/07/2019', 'Em andamento', '99700-036', 'RS', 'Erechim', 'Centro', 'Avenida Germano Hoffmann', 20, '20.00', '0.00', '', 'ServiÃ§o ainda nÃ£o concluÃ­do'),
+(3, 2, 'ManutenÃ§Ã£o ElÃ©trica', '02/07/2019 - 02/07/2019', 'Aceito', '99700-438', 'RS', 'Erechim', 'Centro', 'Rua JoÃ£o Massignam', 20, '100.00', '0.00', '', 'ServiÃ§o ainda nÃ£o concluÃ­do'),
+(4, 3, 'ManutenÃ§Ã£o HidrÃ¡ulica', '01/07/2019 - 02/07/2019', 'Aguardando aprovaÃ§Ã£o do cliente', '99700-400', 'RS', 'Erechim', 'Centro', 'Rua Carlos Kehlers', 14, '50.00', '0.00', '', 'ServiÃ§o ainda nÃ£o concluÃ­do'),
+(5, 4, 'ConstruÃ§Ã£o', '30/06/2019 - 01/07/2019', 'Cancelado/Recusado', '99700-438', 'RS', 'Erechim', 'Centro', 'Rua JoÃ£o Massignam', 877, '999.99', '0.00', '', 'ServiÃ§o ainda nÃ£o concluÃ­do'),
+(6, 7, 'Reforma', '02/07/2019 - 02/07/2019', 'ConcluÃ­do', '99700-036', 'RS', 'Erechim', 'Centro', 'Avenida Germano Hoffmann', 11, '99.99', '0.00', '', 'ServiÃ§o ainda nÃ£o concluÃ­do'),
+(7, 12, 'ConstruÃ§Ã£o', '02/07/2019 - 02/07/2019', 'Aguardando retorno da construtora', '99700-036', 'RS', 'Erechim', 'Centro', 'Avenida Germano Hoffmann', 20, '99.99', '0.00', '', 'ServiÃ§o ainda nÃ£o concluÃ­do'),
+(8, 6, 'ManutenÃ§Ã£o ElÃ©trica', '02/07/2019 - 02/07/2019', 'Aguardando aprovaÃ§Ã£o do cliente', '99704-254', 'RS', 'Erechim', 'Linho', 'Rua Francisco Ferdinando Losina', 13, '42.35', '0.00', '', 'ServiÃ§o ainda nÃ£o concluÃ­do'),
+(9, 10, 'ManutenÃ§Ã£o ElÃ©trica', '02/07/2019 - 02/07/2019', 'Cancelado/Recusado', '99700-438', 'RS', 'Erechim', 'Centro', 'Rua JoÃ£o Massignam', 2, '10.11', '0.00', '', 'ServiÃ§o ainda nÃ£o concluÃ­do');
 
 --
 -- Indexes for dumped tables
@@ -280,6 +305,12 @@ ALTER TABLE `tb_cliente`
 --
 ALTER TABLE `tb_fornecedor`
   ADD PRIMARY KEY (`idFornecedor`);
+
+--
+-- Indexes for table `tb_imagem`
+--
+ALTER TABLE `tb_imagem`
+  ADD PRIMARY KEY (`idImagem`);
 
 --
 -- Indexes for table `tb_item_servico`
@@ -324,37 +355,43 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT for table `tb_cliente`
 --
 ALTER TABLE `tb_cliente`
-  MODIFY `idCliente` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idCliente` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tb_fornecedor`
 --
 ALTER TABLE `tb_fornecedor`
-  MODIFY `idFornecedor` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idFornecedor` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `tb_imagem`
+--
+ALTER TABLE `tb_imagem`
+  MODIFY `idImagem` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_item_servico`
 --
 ALTER TABLE `tb_item_servico`
-  MODIFY `idItemServico` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `idItemServico` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tb_materiais_servico`
 --
 ALTER TABLE `tb_materiais_servico`
-  MODIFY `idMaterialServico` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `idMaterialServico` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tb_material`
 --
 ALTER TABLE `tb_material`
-  MODIFY `idMaterial` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `idMaterial` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `tb_servico`
 --
 ALTER TABLE `tb_servico`
-  MODIFY `idServico` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idServico` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

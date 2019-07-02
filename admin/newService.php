@@ -144,7 +144,7 @@
                     <header class="panel-heading">
                       Imagens
                       <br/>
-                      <strong>Anexe fotos das áreas a serem realizadas o serviço e coloque o seu tamanho em m²</strong>
+                      <strong>Insira imagens do local a ser realizado o serviço</strong>
                     </header>
                     <div class="panel-body" style="border-width: 1px 1px 1px;padding: 5px;">
                       <input type="file" name="arquivo[]" multiple required>
